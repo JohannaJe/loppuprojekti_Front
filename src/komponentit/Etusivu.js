@@ -23,7 +23,7 @@ export class Etusivu extends Component {
 
     poistaLista = () => {
         haeLista(function (lista) {
-            this.setState({testiLista: null, msg: null});
+            this.setState({testiLista: [], msg: null});
             console.log(this.state.testiLista);
         }.bind(this));
 
