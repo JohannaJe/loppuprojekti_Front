@@ -5,9 +5,16 @@ export class Vaihtoehdot extends React.Component {
     render(){
         return(
             <div className = "vaihtoehtoreuna">
-            <input type="submit" value="Listaa"/>
+                <button onClick={this.tulosta}>Listaa</button>
             </div>
     );
     }
 
+    tulosta=(c) => {
+        c.preventDefault();
+
+
+    }
 }
+
+export default Vaihtoehdot;
