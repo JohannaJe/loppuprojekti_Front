@@ -21,12 +21,19 @@ export class Etusivu extends Component {
 
     }
 
+    poistaLista = () => {
+        haeLista(function (lista) {
+            this.setState({testiLista: null, msg: null});
+            console.log(this.state.testiLista);
+        }.bind(this));
+
+    }
+
        render(){
         return(
             <div className ="reuna">
             <p>Tekstiä :-)</p>
-            <Vaihtoehdot haefunktio={this.haeListaJaPaivita}/>
-                {/*<button onClick={this.haeListaJaPaivita}>Listaa</button>*/}
+            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} poistafunktio={this.poistaLista}/>
             <Listaus lista={this.state.testiLista}/>
             </div>
         );
