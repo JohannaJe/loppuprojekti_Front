@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import {Vaihtoehdot} from "./Vaihtoehdot";
 import {Listaus} from "./Listaus";
 import './Etusivu.css';
