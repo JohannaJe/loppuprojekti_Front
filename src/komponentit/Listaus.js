@@ -8,9 +8,10 @@ export class Listaus extends React.Component {
         var kaikki = this.props.lista.map(function(x) {
             return(
                 <div>
-                    {x.otsikko}
-                    {x.linkki}
-                    {x.aikaleima}
+                    <p>{x.aikaleima}</p>
+                    <p><a href={x.linkki}><img src={x.kuva}/></a></p>
+                    <p><a href={x.linkki}>{x.otsikko}</a></p>
+
                 <br/>
                     <br/>
 
