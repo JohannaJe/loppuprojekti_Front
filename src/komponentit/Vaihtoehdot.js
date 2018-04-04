@@ -1,6 +1,6 @@
 import React from 'react';
 import './Vaihtoehdot.css';
-import Etusivu from "./Etusivu";
+
 
 export class Vaihtoehdot extends React.Component {
     render(){
