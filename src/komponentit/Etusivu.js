@@ -30,8 +30,7 @@ export class Etusivu extends Component {
 
        render(){
         return(
-            <div className ="reuna">
-            <p>Tekstiä :-)</p>
+            <div className ="tausta">
             <Vaihtoehdot haefunktio={this.haeListaJaPaivita} poistafunktio={this.poistaLista}/>
             <Listaus lista={this.state.testiLista}/>
             </div>
