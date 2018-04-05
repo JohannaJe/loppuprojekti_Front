@@ -5,9 +5,9 @@ import './Listaus.css';
 export class Listaus extends React.Component {
 
     render() {
-        var kaikki = this.props.lista.map(function(x) {
+        var kaikki = this.props.lista.map(function(x, index) {
             return(
-                <div>
+                <div key={index}>
                     <p>{x.aikaleimaString}</p>
                     <p><a href={x.linkki}><img src={x.kuva}/></a></p>
                     <p><a href={x.linkki}>{x.otsikko}</a></p>
@@ -22,10 +22,7 @@ export class Listaus extends React.Component {
 
         return (
             <div className="listausreuna">
-                <p>
                     {kaikki}
-
-                </p>
             </div>
         );
     }
