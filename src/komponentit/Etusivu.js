@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Vaihtoehdot} from "./Vaihtoehdot";
 import {Listaus} from "./Listaus";
 import './Etusivu.css';
-import {haeLista, taulukkoon, taulukko} from "./funktiot";
+import {haeLista, taulukkoon, poistaTaulukosta, taulukko, lahdetaulukko} from "./funktiot";
 
 export class Etusivu extends Component {
     state = {testiLista: [], msg: "Haetaan dataa"}
@@ -11,42 +11,48 @@ export class Etusivu extends Component {
 
 
     haeListaJaPaivita = () => {
-        // Jos on hakusana:
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
             console.log(this.state.testiLista);
-        }.bind(this), taulukko()); // jälkimmäinen parametri haluttu stringi
+        }.bind(this), lahdetaulukko);
 
     }
 
-    lisaaHS = () => {
-        taulukkoon("HS");
-
-    }
-    lisaaIS = () => {
-        taulukkoon("IS");
-
-    }
-
-    lisaaBBC = () => {
-        taulukkoon("BBC");
-
+    toggleHS = () => {
+        if (lahdetaulukko.indexOf("HS") > -1) {
+            poistaTaulukosta("HS");
+        } else {
+            taulukkoon("HS");
+        }
 
     }
 
-    poistaLista = () => {
-        haeLista(function (lista) {
-            this.setState({testiLista: [], msg: null});
-            console.log(this.state.testiLista);
-        }.bind(this));
+    toggleIS = () => {
+        if (lahdetaulukko.indexOf("IS") > -1) {
+            poistaTaulukosta("IS");
+        } else {
+            taulukkoon("IS");
+        }
 
+    }
+
+    toggleBBC = () => {
+        if (lahdetaulukko.indexOf("BBC") > -1) {
+            poistaTaulukosta("BBC");
+        } else {
+            taulukkoon("BBC");
+        }
     }
 
        render(){
         return(
             <div className ="tausta">
+<<<<<<< HEAD
                 <p>Your Personal Bubble</p>
             <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.lisaaHS} IS={this.lisaaIS} BBC={this.lisaaBBC} poistafunktio={this.poistaLista}/>
+=======
+            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
+>>>>>>> 84fc9541af2a039c280e8930a50dadad93a782fd
             <Listaus lista={this.state.testiLista}/>
             </div>
         );
