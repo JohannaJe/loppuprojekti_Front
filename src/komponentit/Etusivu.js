@@ -45,10 +45,6 @@ export class Etusivu extends Component {
 
     }
 
-
-
-
-
     poistaLista = () => {
         haeLista(function (lista) {
             this.setState({testiLista: [], msg: null});
@@ -73,7 +69,6 @@ export class Etusivu extends Component {
 
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.lisaaHS} IS={this.lisaaIS}
                                  BBC={this.lisaaBBC} CNN={this.lisaaCNN} poistafunktio={this.poistaLista}/>
-
                     <Listaus lista={this.state.testiLista}/>
                 </div>
             );

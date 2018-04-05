@@ -7,10 +7,16 @@ export class Vaihtoehdot extends React.Component {
         return(
             <div className = "vaihtoehtoreuna">
 
-                <button type="button" onClick={this.props.HS}>HS</button>
-                <button type="button" onClick={this.props.IS}>IS</button>
-                <button type="button" onClick={this.props.BBC}>BBC</button>
-                <button type="button" onClick={this.props.CNN}>CNN</button>
+
+                <p>Valitse tästä:</p>
+                <br/>
+
+                HS: <input type="checkbox" checked={this.state} onChange={this.props.HS} />
+                IS: <input type="checkbox" checked={this.state} onChange={this.props.IS} />
+                BBC: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />
+                {/*CNN: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />*/}
+                <br/>
+
 
                 <button type="button" onClick={this.props.haefunktio}>Hae</button>
             </div>
