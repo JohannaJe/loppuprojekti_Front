@@ -31,6 +31,12 @@ function taulukkoon(lahde) {
     lahdetaulukko.push(lahde);
 }
 
+function poistaTaulukosta (lahde) {
+    const poistettava = lahdetaulukko.indexOf(lahde);
+    lahdetaulukko.splice(poistettava, 1);
+
+}
+
 function taulukko() {
     return lahdetaulukko;
 
@@ -40,3 +46,5 @@ function taulukko() {
 export {haeLista};
 export {taulukkoon};
 export {taulukko};
+export {poistaTaulukosta};
+export {lahdetaulukko};
