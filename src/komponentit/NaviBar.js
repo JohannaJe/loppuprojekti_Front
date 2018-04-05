@@ -10,14 +10,15 @@ export class NaviBar extends React.Component {
                     <ul className="nav navbar-nav">
                         <li className="nav navbar-brand">Need4Feed</li>
                         <li><Link to={"/home"}>Home</Link></li>
+                        <li><Link to={"/register"}>Register</Link></li>
                         <li><Link to={"/login"}>Login</Link></li>
                          </ul>
                     <form className="navbar-form navbar-left" action="/action_page.php">
                         <div className="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="search"></input>
+                            <input type="text" className="form-control" placeholder="Search" name="search"></input>
                         </div>
-                        <button type="submit" class="btn btn-default">
-                        <i class="glyphicon glyphicon-search"></i></button>
+                        <button type="submit" className="btn btn-default">
+                        <i className="glyphicon glyphicon-search"></i></button>
                     </form>
                 </div>
             </div>
