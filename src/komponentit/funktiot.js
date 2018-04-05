@@ -1,7 +1,11 @@
 const baseurl = "/api/testi";
 
-function haeLista(callback) {
-    fetch(baseurl)
+function haeLista(callback, feed) {
+    let url = baseurl;
+    if (feed) {
+        url += "?name="+feed;
+    }
+    fetch(url)
         .then(function (response) {
             if (!response.ok) {
                 const errviesti = {

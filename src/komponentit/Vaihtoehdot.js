@@ -6,7 +6,9 @@ export class Vaihtoehdot extends React.Component {
     render(){
         return(
             <div className = "vaihtoehtoreuna">
-                <button type="button" onClick={this.props.haefunktio}>Listaa</button>
+                <button type="button" onClick={this.props.haefunktioHS}>HS</button>
+                <button type="button" onClick={this.props.haefunktioIS}>IS</button>
+                <button type="button" onClick={this.props.haefunktioBBC}>BBC</button>
                 <button type="button" onClick={this.props.poistafunktio}>Poista</button>
             </div>
     );

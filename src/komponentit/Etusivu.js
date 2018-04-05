@@ -12,11 +12,29 @@ export class Etusivu extends Component {
     //
     // }
 
-    haeListaJaPaivita = () => {
+    haeListaJaPaivitaHS = () => {
+        // Jos on hakusana:
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
             console.log(this.state.testiLista);
-        }.bind(this));
+        }.bind(this), "HS"); // jälkimmäinen parametri haluttu stringi
+
+    }
+    haeListaJaPaivitaIS = () => {
+        // Jos on hakusana:
+        haeLista(function (lista) {
+            this.setState({testiLista: lista, msg: null});
+            console.log(this.state.testiLista);
+        }.bind(this), "IS"); // jälkimmäinen parametri haluttu stringi
+
+    }
+
+    haeListaJaPaivitaBBC = () => {
+        // Jos on hakusana:
+        haeLista(function (lista) {
+            this.setState({testiLista: lista, msg: null});
+            console.log(this.state.testiLista);
+        }.bind(this), "BBC"); // jälkimmäinen parametri haluttu stringi
 
     }
 
@@ -31,7 +49,7 @@ export class Etusivu extends Component {
        render(){
         return(
             <div className ="tausta">
-            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} poistafunktio={this.poistaLista}/>
+            <Vaihtoehdot haefunktioHS={this.haeListaJaPaivitaHS} haefunktioIS={this.haeListaJaPaivitaIS} haefunktioBBC={this.haeListaJaPaivitaBBC} poistafunktio={this.poistaLista}/>
             <Listaus lista={this.state.testiLista}/>
             </div>
         );
