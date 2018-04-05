@@ -8,7 +8,9 @@ export class Vaihtoehdot extends React.Component {
             <div className = "vaihtoehtoreuna">
 
 
+
                 <p>Valitse tästä:</p>
+
                 <br/>
 
                 HS: <input type="checkbox" checked={this.state} onChange={this.props.HS} />
