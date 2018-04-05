@@ -34,6 +34,13 @@ export class Etusivu extends Component {
 
     }
 
+    lisaaCNN = () => {
+        taulukkoon("CNN");
+
+
+    }
+
+
     poistaLista = () => {
         haeLista(function (lista) {
             this.setState({testiLista: [], msg: null});
@@ -45,7 +52,7 @@ export class Etusivu extends Component {
        render(){
         return(
             <div className ="tausta">
-            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.lisaaHS} IS={this.lisaaIS} BBC={this.lisaaBBC} poistafunktio={this.poistaLista}/>
+            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.lisaaHS} IS={this.lisaaIS} BBC={this.lisaaBBC} CNN={this.lisaaCNN} poistafunktio={this.poistaLista}/>
             <Listaus lista={this.state.testiLista}/>
             </div>
         );

@@ -9,6 +9,7 @@ export class Vaihtoehdot extends React.Component {
                 <button type="button" onClick={this.props.HS}>HS</button>
                 <button type="button" onClick={this.props.IS}>IS</button>
                 <button type="button" onClick={this.props.BBC}>BBC</button>
+                <button type="button" onClick={this.props.CNN}>CNN</button>
                 <button type="button" onClick={this.props.haefunktio}>Hae</button>
                 <button type="button" onClick={this.props.poistafunktio}>Poista</button>
             </div>

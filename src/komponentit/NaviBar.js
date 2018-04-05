@@ -8,6 +8,7 @@ export class NaviBar extends React.Component {
 
                 <div className="container">
                     <ul className="nav navbar-nav">
+                        <li className="nav navbar-brand">Need4Feed</li>
                         <li><Link to={"/home"}>Home</Link></li>
                         <li><Link to={"/login"}>Login</Link></li>
                          </ul>
