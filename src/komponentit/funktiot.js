@@ -1,4 +1,6 @@
 const baseurl = "/api/testi";
+let lahdetaulukko = [];
+
 
 function haeLista(callback, feed) {
     let url = baseurl;
@@ -25,4 +27,16 @@ function haeLista(callback, feed) {
         });
 }
 
+function taulukkoon(lahde) {
+    lahdetaulukko.push(lahde);
+}
+
+function taulukko() {
+    return lahdetaulukko;
+
+}
+
+
 export {haeLista};
+export {taulukkoon};
+export {taulukko};
