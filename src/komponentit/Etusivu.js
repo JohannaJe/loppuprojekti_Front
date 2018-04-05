@@ -49,6 +49,7 @@ export class Etusivu extends Component {
        render(){
         return(
             <div className ="tausta">
+                <p>Your Personal Bubble</p>
             <Vaihtoehdot haefunktioHS={this.haeListaJaPaivitaHS} haefunktioIS={this.haeListaJaPaivitaIS} haefunktioBBC={this.haeListaJaPaivitaBBC} poistafunktio={this.poistaLista}/>
             <Listaus lista={this.state.testiLista}/>
             </div>
