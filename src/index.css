@@ -1,6 +1,9 @@
 body {
-  background-image: url("./turkoosi.jpg");
-  margin: 0;
+  background-image: url("./kasi2.jpg");
+  background-position: top;
+  background-size: cover;
+  height: 150px;
   padding: 0;
+  margin: 0;
   font-family: sans-serif;
 }

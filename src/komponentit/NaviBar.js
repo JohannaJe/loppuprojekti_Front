@@ -6,23 +6,24 @@ export class NaviBar extends React.Component {
         return (
             <div className="App">
 
-                <div className="container">
-                    <ul className="nav navbar-nav">
-                        <li><Link to={"/home"}>Home</Link></li>
-                        <li><Link to={"/login"}>Login</Link></li>
-                         </ul>
-                    <form className="navbar-form navbar-left" action="/action_page.php">
-                        <div className="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="search"></input>
+
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Need4Feed</a>
                         </div>
-                        <button type="submit" class="btn btn-default">
-                        <i class="glyphicon glyphicon-search"></i></button>
-                    </form>
-                </div>
+                        <ul class="nav navbar-nav">
+                            <li><Link to={"/home"}>Home</Link></li>
+                            <li><a href="#">My Page</a></li>
+                            <li><a href="#">Something</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><Link to={"/login"}>Login</Link></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
-
-    );
+        );
     }
 }
-

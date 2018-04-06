@@ -9,7 +9,7 @@ export class Listaus extends React.Component {
             return(
                 <div>
                     <p>{x.aikaleimaString}</p>
-                    <p><a href={x.linkki}><img src={x.kuva}/></a></p>
+                    <p><a href={x.linkki}><img className="img-responsive img-thumbnail center-block" src={x.kuva} width="460" height="345" /></a></p>
                     <p><a href={x.linkki}>{x.otsikko}</a></p>
 
                 <br/>
