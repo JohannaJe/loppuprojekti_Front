@@ -7,7 +7,6 @@ export class NaviBar extends React.Component {
             <div className="App">
 
 
-
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">

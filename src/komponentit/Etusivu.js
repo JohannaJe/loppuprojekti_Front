@@ -36,42 +36,20 @@ export class Etusivu extends Component {
 
     }
 
-    toggleCNN = () => {
-        if (lahdetaulukko.indexOf("CNN") > -1) {
-            poistaTaulukosta("CNN");
-        } else {
-            taulukkoon("CNN");
-        }
-
-    }
-
-    poistaLista = () => {
-        haeLista(function (lista) {
-            this.setState({testiLista: [], msg: null});
-            console.log(this.state.testiLista);
-        }.bind(this));
-    }
-
-
     toggleBBC = () => {
         if (lahdetaulukko.indexOf("BBC") > -1) {
             poistaTaulukosta("BBC");
         } else {
             taulukkoon("BBC");
         }
-
     }
 
-       render()
-        {
-            return (
-                <div className="tausta">
-
-                    <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.lisaaHS} IS={this.lisaaIS}
-                                 BBC={this.lisaaBBC} CNN={this.lisaaCNN} poistafunktio={this.poistaLista}/>
-                    <Listaus lista={this.state.testiLista}/>
-                </div>
-            );
-        }
-
+       render(){
+        return(
+            <div className ="tausta">
+            <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
+            <Listaus lista={this.state.testiLista}/>
+            </div>
+        );
+    }
 }
