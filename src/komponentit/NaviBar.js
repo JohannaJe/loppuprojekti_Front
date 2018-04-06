@@ -24,7 +24,6 @@ export class NaviBar extends React.Component {
                             <ul class="nav navbar-nav">
                                 <li><Link to={"/home"}>Home</Link></li>
                                 <li><a href="#">My Page</a></li>
-
                             </ul>
 
 
@@ -37,8 +36,8 @@ export class NaviBar extends React.Component {
                                     <i className="glyphicon glyphicon-search"></i></button>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><Link to={"/register"}><span class="glyphicon glyphicon-user"></span>Sign Up</Link></li>
-                                <li><Link to={"/login"}><span class="glyphicon glyphicon-user"></span>Login</Link></li>
+                                <li><Link to={"/register"}>Sign Up</Link></li>
+                                <li><Link to={"/login"}>Login</Link></li>
                             </ul>
                         </div>
                     </div>

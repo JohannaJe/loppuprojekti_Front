@@ -1,5 +1,7 @@
 body {
   background-image: url("./kasi2.jpg");
+  background-repeat: no-repeat;
+  background-attachment :fixed;
   background-position: top;
   background-size: cover;
   height: 150px;
