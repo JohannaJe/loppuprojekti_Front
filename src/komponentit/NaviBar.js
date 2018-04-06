@@ -11,6 +11,7 @@ export class NaviBar extends React.Component {
                     <div class="container-fluid">
 
                         <div class="navbar-header">
+
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -36,9 +37,8 @@ export class NaviBar extends React.Component {
                                     <i className="glyphicon glyphicon-search"></i></button>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><Link to={"/login"}>Login</Link></li>
-                                <li><Link to={"/register"}>Register</Link></li>
+                                <li><Link to={"/register"}><span class="glyphicon glyphicon-user"></span>Sign Up</Link></li>
+                                <li><Link to={"/login"}><span class="glyphicon glyphicon-user"></span>Login</Link></li>
                             </ul>
                         </div>
                     </div>
