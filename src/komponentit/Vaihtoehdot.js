@@ -19,9 +19,11 @@ export class Vaihtoehdot extends React.Component {
                 {/*CNN: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />*/}
                 <br/>
 
+                <button class="btn btn-success" onClick={this.props.haefunktio}>Hae</button>
 
-                <button type="button" onClick={this.props.haefunktio}>Hae</button>
             </div>
+
+
     );
     }
 
