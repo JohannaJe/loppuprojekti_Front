@@ -17,12 +17,23 @@ export class NaviBar extends React.Component {
                             <li><a href="#">My Page</a></li>
                             <li><a href="#">Something</a></li>
                         </ul>
+                        <form className="navbar-form navbar-left" action="/action_page.php">
+                            <div className="form-group">
+                                <input type="text" className="form-control" placeholder="Search" name="search"></input>
+                            </div>
+                            <button type="submit" className="btn btn-default">
+                                <i className="glyphicon glyphicon-search"></i></button>
+                        </form>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                             <li><Link to={"/login"}>Login</Link></li>
+                            <li><Link to={"/register"}>Register</Link></li>
                         </ul>
                     </div>
                 </nav>
+
+
+
             </div>
         );
     }
