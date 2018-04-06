@@ -14,7 +14,7 @@ export class Vaihtoehdot extends React.Component {
                 IS: <input type="checkbox" checked={this.state} onChange={this.props.IS} />
                 BBC: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />
                 <br/>
-                <button class="btn btn-success" onClick={this.props.haefunktio}>Hae</button>
+                <button className="btn btn-info" onClick={this.props.haefunktio}>Hae</button>
             </div>
 
 

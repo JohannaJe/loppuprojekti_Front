@@ -8,7 +8,7 @@ export class Login extends React.Component {
             <div className = "loginreuna">
                 <input type="text" name="username" placeholder="username"/>
                 <input type="password" name="password" placeholder="password"/>
-                <button class="btn btn-success" type="submit">
+                <button class="btn btn-info" type="submit">
                     Log in
                 </button>
             </div>

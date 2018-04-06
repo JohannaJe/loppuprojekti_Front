@@ -39,8 +39,8 @@ export class Register extends React.Component {
             <div className = "registerreuna">
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
-                <button onClick={this.uusiHenkilo} className="btn btn-success" type="submit">
-                    Register
+                <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
+                    Sign Up
                 </button>
             </div>
         );
