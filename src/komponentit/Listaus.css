@@ -1,20 +1,52 @@
 .listausreuna {
     background-image: url("../ListaTesti.jpg");
     background-repeat: no-repeat;
-    background-attachment :fixed;
+    background-attachment: fixed;
     background-position: center;
     background-size: 75% 100%;
     margin-top: 20px;
+    /*border-radius: 3px;*/
 
 }
 
-a.linkki {
+@media screen and (max-width: 839px) {
+    a.linkki {
+        font-size: 3vw;
+        color: red;
+        
+    }
 
-    color: yellow;
+    .aikaleima {
+        font-size: 3vw;
+        color: red;
 
+    }
 }
 
-.aikaleima {
-    color: yellow;
+    @media screen and (min-width: 840px) {
+        a.linkki {
+            background-color: deepskyblue;
+            font-size: 2.5vw;
+            color: yellow;
+        }
 
+        .aikaleima {
+            font-size: 2.5vw;
+            color: yellow;
+
+        }
+    }
+@media screen and (min-width: 1024px) {
+    a.linkki {
+
+        font-size: 2vw;
+        color: green;
+    }
+
+    .aikaleima {
+        font-size: 2vw;
+        color: green;
+
+    }
 }
+

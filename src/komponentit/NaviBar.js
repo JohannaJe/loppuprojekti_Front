@@ -12,7 +12,7 @@ export class NaviBar extends React.Component {
 
                         <div class="navbar-header">
 
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
                                 <span id="sampyla" class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span id="sampyla" class="icon-bar"></span>
@@ -30,7 +30,7 @@ export class NaviBar extends React.Component {
                             <form className="navbar-form navbar-left" action="/action_page.php">
                                 <div className="form-group">
                                     <input type="text" className="form-control" placeholder="Search"
-                                           name="search"></input>
+                                           name="search" ></input>
                                 </div>
                                 <button type="submit" className="btn btn-default">
                                     <i className="glyphicon glyphicon-search"></i></button>
