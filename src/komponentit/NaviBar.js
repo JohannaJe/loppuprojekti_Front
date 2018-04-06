@@ -13,9 +13,9 @@ export class NaviBar extends React.Component {
                         <div class="navbar-header">
 
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                                <span id="sampyla" class="icon-bar"></span>
                                 <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+                                <span id="sampyla" class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="#">Need4Feed</a>
                         </div>
@@ -24,7 +24,7 @@ export class NaviBar extends React.Component {
                             <ul class="nav navbar-nav">
                                 <li><Link to={"/home"}>Home</Link></li>
                                 <li><a href="#">My Page</a></li>
-                                <li><a href="#">Something</a></li>
+
                             </ul>
 
 
