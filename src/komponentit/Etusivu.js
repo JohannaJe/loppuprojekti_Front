@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Vaihtoehdot} from "./Vaihtoehdot";
 import {Listaus} from "./Listaus";
 import './Etusivu.css';
-import {haeLista, taulukkoon, poistaTaulukosta, taulukko, lahdetaulukko} from "./funktiot";
+import {haeLista, taulukkoon, poistaTaulukosta, lahdetaulukko} from "./funktiot";
 
 export class Etusivu extends Component {
     state = {testiLista: [], msg: "Haetaan dataa"}
