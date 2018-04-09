@@ -41,8 +41,10 @@ export class Login extends React.Component {
 
 
 
-    render(props){
-        if (true) {
+    render(){
+        var kirjautunut = this.props.kayttaja
+        console.log(kirjautunut)
+        if (!true) {
             console.log("JEEA!")
             return(
             <div>

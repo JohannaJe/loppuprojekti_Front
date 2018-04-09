@@ -12,6 +12,7 @@ import {NaviBar} from "./komponentit/NaviBar";
 import {Etusivu} from "./komponentit/Etusivu";
 import {Login} from "./komponentit/Login";
 import {Register} from "./komponentit/Register";
+import {Logout} from "./komponentit/Logout";
 import {PrivateRoute} from "./komponentit/PrivateRoute"
 import {getCurrentUser} from "./komponentit/rekisteroityminen";
 // import AppHeader from '../common/AppHeader';
@@ -113,10 +114,11 @@ class App extends Component {
             return (
                 <BrowserRouter>
                     <div className="App">
-                        <NaviBar authenticated={this.state.isAuthenticated}/>
+                        <NaviBar kayttaja={this.state.isAuthenticated}/>
                         {/*<Route path="/home" component={Etusivu}/>*/}
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/logout" component={Logout}/>
                         <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
                         <Etusivu nakki={this.state.currentUser}/>
                     </div>
@@ -130,6 +132,7 @@ class App extends Component {
                         {/*<Route path="/home" component={Etusivu}/>*/}
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/logout" component={Logout}/>
                         <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
 
                     </div>
