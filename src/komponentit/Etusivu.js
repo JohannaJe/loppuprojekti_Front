@@ -11,10 +11,16 @@ export class Etusivu extends Component {
 
 
     haeListaJaPaivita = () => {
-        haeLista(function (lista) {
-            this.setState({testiLista: lista, msg: null});
-            console.log(this.state.testiLista);
-        }.bind(this), lahdetaulukko);
+        if (true) {
+            var data = this.props.nakki.data;
+            taulukkoon(data)
+        }
+            console.log('jes', data, lahdetaulukko)
+            haeLista(function (lista) {
+                this.setState({testiLista: lista, msg: null});
+                console.log(this.state.testiLista);
+            }.bind(this), lahdetaulukko);
+
 
     }
 
