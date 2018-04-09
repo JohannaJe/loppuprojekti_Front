@@ -3,6 +3,7 @@ import './Login.css';
 import {kirjauduSisaan} from "./rekisteroityminen";
 import {Etusivu} from "./Etusivu";
 import {App} from "../App"
+import {isAuth} from "../App";
 
 export class Login extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ export class Login extends React.Component {
 
 
     render(props){
-        if (!true) {
+        if (true) {
             console.log("JEEA!")
             return(
             <div>

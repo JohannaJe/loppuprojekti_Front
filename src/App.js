@@ -21,6 +21,7 @@ import {getCurrentUser} from "./komponentit/rekisteroityminen";
 
 import { Layout, notification } from 'antd';
 const { Content } = Layout;
+// export const {isAuth}= this.state.isAuthenticated;
 
 class App extends Component {
     constructor(props) {
@@ -95,6 +96,8 @@ class App extends Component {
         this.loadCurrentUser();
         this.props.history.push("/");
     }
+
+
 
 
 
