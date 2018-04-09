@@ -8,8 +8,10 @@ import {NaviBar} from "./NaviBar";
 
 export class Logout extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         localStorage.removeItem('accessToken')
+        this.props.logindone();
+        this.props.history.push("/");
 
     }
 

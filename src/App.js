@@ -71,14 +71,14 @@ class App extends Component {
 
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
     handleLogout(redirectTo = "/", notificationType = "success", description = "You're successfully logged out.") {
-        localStorage.removeItem('accessToken');
+        // localStorage.removeItem('accessToken');
 
         this.setState({
             currentUser: null,
             isAuthenticated: false
         });
 
-        this.props.history.push(redirectTo);
+        // this.props.history.push(redirectTo);
 
         notification[notificationType]({
             message: 'Polling App',
@@ -112,7 +112,8 @@ class App extends Component {
                             <Route path="/login" render={(props) => <Login history={this.props.history} kayttaja={this.state.currentUser}
                                                                            isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
                             <Route path="/register" component={Register}/>
-                            <Route path="/logout" component={Logout}/>
+                            <Route path="/logout" render={(props) => <Logout history={this.props.history} logindone={this.handleLogout} kayttaja={this.state.currentUser}
+                                                                             isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
                             <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu}
                                           handleLogout={this.handleLogout}></PrivateRoute>
                             <Etusivu nakki={this.state.currentUser}/>
@@ -129,7 +130,8 @@ class App extends Component {
                             <Route path="/login" render={(props) => <Login logindone={this.handleLogin} kayttaja={this.state.currentUser}
                                                                       isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
                             <Route path="/register" component={Register}/>
-                            <Route path="/logout" component={Logout}/>
+                            <Route path="/logout" render={(props) => <Logout history={this.props.history} logindone={this.handleLogout} kayttaja={this.state.currentUser}
+                                                                             isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
                             <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu}
                                           handleLogout={this.handleLogout}></PrivateRoute>
                         </Switch>
