@@ -37,14 +37,10 @@ function poistaTaulukosta (lahde) {
 
 }
 
-function taulukko() {
-    return lahdetaulukko;
 
-}
 
 
 export {haeLista};
 export {taulukkoon};
-export {taulukko};
 export {poistaTaulukosta};
 export {lahdetaulukko};

@@ -22,6 +22,7 @@ export class Vaihtoehdot extends React.Component {
         return(
             <div className = "vaihtoehtoreuna">
 
+
                 <p><b>Pick your Picks, Pick!</b></p>
                 <br/>
 

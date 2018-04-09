@@ -14,21 +14,21 @@ export class NaviBar extends React.Component {
                         <div className="navbar-header">
 
 
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
 
                             </button>
                             <a className="navbar-brand">
-                                <img src={Feed100} width="120" heigth="70" />
+                                <img src={Feed100} alt="" width="120" heigth="70" />
                             </a>
                         </div>
 
                         <div className="collapse navbar-collapse" id="mainNavBar">
                             <ul className="nav navbar-nav">
                                 <li><Link to={"/home"}>Home</Link></li>
-                                <li><a href="#">My Page</a></li>
+                                <li><a href="http://www.hs.fi">My Page</a></li>
                             </ul>
 
 

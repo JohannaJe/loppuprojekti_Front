@@ -8,7 +8,9 @@ export class Register extends React.Component {
     constructor(props) {
         super();
         this.state = {
+            name: "",
             username: "",
+            email: "",
             password: ""
         }
     }
@@ -16,14 +18,26 @@ export class Register extends React.Component {
 //state sisältää username ja password
     uusiHenkilo = () => {
         rekisteroityminen(this.state, function(lista) {
-            this.setState({username: "", password: ""});
+            this.setState({name: "", username: "", email: "", password: ""});
         }.bind(this));
 
+    }
+
+    giveName(event){
+        this.setState({
+            name: event.target.value
+        });
     }
 
     giveUsername(event){
         this.setState({
             username: event.target.value
+        });
+    }
+
+    giveEmail(event){
+        this.setState({
+            email: event.target.value
         });
     }
 
@@ -37,7 +51,9 @@ export class Register extends React.Component {
     render(){
         return(
             <div className = "registerreuna">
+                <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="name"/>
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
+                <input type="text" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email"/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
                 <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
