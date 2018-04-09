@@ -109,18 +109,33 @@ class App extends Component {
 
     render() {
         console.log('Onko autentikoitu', this.state.isAuthenticated)
-        return (
-            <BrowserRouter>
-                <div className="App">
-                    <NaviBar authenticated={this.state.isAuthenticated}/>
-                    {/*<Route path="/home" component={Etusivu}/>*/}
-                    <Route path="/login" component={Login}/>
-                    <Route path="/register" component={Register}/>
-                    <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
+        if(this.state.isAuthenticated) {
+            return (
+                <BrowserRouter>
+                    <div className="App">
+                        <NaviBar authenticated={this.state.isAuthenticated}/>
+                        {/*<Route path="/home" component={Etusivu}/>*/}
+                        <Route path="/login" component={Login}/>
+                        <Route path="/register" component={Register}/>
+                        <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
+                        <Etusivu nakki={this.state.currentUser}/>
+                    </div>
+                </BrowserRouter>
+            );
+        } else {
+            return (
+                <BrowserRouter>
+                    <div className="App">
+                        <NaviBar authenticated={this.state.isAuthenticated}/>
+                        {/*<Route path="/home" component={Etusivu}/>*/}
+                        <Route path="/login" component={Login}/>
+                        <Route path="/register" component={Register}/>
+                        <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
 
-                </div>
-            </BrowserRouter>
-        );
+                    </div>
+                </BrowserRouter>
+            );
+        }
     }
 }
 
