@@ -26,24 +26,11 @@ export class NaviBar extends React.Component {
                         </div>
 
                         <div className="collapse navbar-collapse" id="mainNavBar">
-                            <ul className="nav navbar-nav">
-                                <li><Link to={"/home"}>Home</Link></li>
-                                <li><a href="http://www.hs.fi">My Page</a></li>
-                            </ul>
-
-
-                            <form className="navbar-form navbar-left" action="/action_page.php">
-                                <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Search"
-                                           name="search" ></input>
-                                </div>
-                                <button type="submit" className="btn btn-default">
-                                    <i className="glyphicon glyphicon-search"></i></button>
-                            </form>
                             <ul className="nav navbar-nav navbar-right">
+                                <li><Link to={"/home"}>Home</Link></li>
                                 <li><Link to={"/register"}>Sign Up</Link></li>
                                 <li><Link to={"/login"}>Login</Link></li>
-                            </ul>
+                                </ul>
                         </div>
                     </div>
                 </nav>
