@@ -1,10 +1,6 @@
 import React from 'react';
 import './Login.css';
 import {kirjauduSisaan} from "./rekisteroityminen";
-import {Etusivu} from "./Etusivu";
-import {App} from "../App"
-import {isAuth} from "../App";
-//import { withRouter } from "react-router-dom";
 
 export class Login extends React.Component {
     constructor(props) {
@@ -20,7 +16,7 @@ export class Login extends React.Component {
     kirjaudu = () => {
         kirjauduSisaan(this.state, function(lista) {
             this.props.logindone();
-            this.props.history.push("/");
+            this.props.history.push("/home");
         }.bind(this));
         this.setState({usernameOrEmail: "", password: ""});
     }
@@ -43,17 +39,6 @@ export class Login extends React.Component {
 
 
     render(){
-        var kirjautunut = this.props.kayttaja
-        if (!true) {
-            console.log("JEEA!")
-            return(
-            <div>
-                <Etusivu/>
-            </div>
-        );
-
-        } else {
-            console.log("EI NATSANNU")
         return(
             <div className = "registerreuna">
                 <input type="text" value={this.state.usernameOrEmail} onChange={(event) => this.giveUsernameOrEmail(event)} placeholder="username or email"/>
@@ -64,6 +49,6 @@ export class Login extends React.Component {
             </div>
 
         );
-        }
+
     }
 }

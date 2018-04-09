@@ -12,7 +12,9 @@ export class Etusivu extends Component {
 
     haeListaJaPaivita = () => {
         if (true) {
-            var data = this.props.nakki.data;
+            var data = this.props.kayttaja.data;
+            var juttu = this.props.kayttaja.username;
+            console.log('jepA', juttu)
             taulukkoon(data)
         }
             console.log('jes', data, lahdetaulukko)

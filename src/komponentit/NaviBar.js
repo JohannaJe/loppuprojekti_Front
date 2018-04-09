@@ -6,8 +6,10 @@ export class NaviBar extends React.Component {
 
     render() {
         var kirjautunut = this.props.kayttaja
-        console.log(kirjautunut, 'JEPPP')
+        // console.log(this.props.kayttajanimi.name)
+
         if (kirjautunut) {
+            var kayttajanimi = this.props.kayttajanimi.username;
             return (
                 <div className="App">
 
@@ -32,7 +34,7 @@ export class NaviBar extends React.Component {
                             <div className="collapse navbar-collapse" id="mainNavBar">
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><Link to={"/home"}>Home</Link></li>
-                                    <li><Link to={"/register"}>User Settings</Link></li>
+                                    <li><Link to={"/register"}>Kirjautuneena: {kayttajanimi}</Link></li>
                                     <li><Link to={"/logout"}>Logout</Link></li>
                                 </ul>
                             </div>
