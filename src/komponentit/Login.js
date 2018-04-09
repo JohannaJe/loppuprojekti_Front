@@ -1,7 +1,8 @@
 import React from 'react';
 import './Login.css';
 import {kirjauduSisaan} from "./rekisteroityminen";
-
+import {Etusivu} from "./Etusivu";
+import {App} from "../App"
 
 export class Login extends React.Component {
     constructor(props) {
@@ -10,7 +11,9 @@ export class Login extends React.Component {
             usernameOrEmail: "",
             password: ""
         }
+
     }
+
 
 //state sisältää username ja password
     kirjaudu = () => {
@@ -35,7 +38,19 @@ export class Login extends React.Component {
     }
 
 
-    render(){
+
+
+    render(props){
+        if (!true) {
+            console.log("JEEA!")
+            return(
+            <div>
+                <Etusivu/>
+            </div>
+        );
+
+        } else {
+            console.log("EI NATSANNU")
         return(
             <div className = "registerreuna">
                 <input type="text" value={this.state.usernameOrEmail} onChange={(event) => this.giveUsernameOrEmail(event)} placeholder="username or email"/>
@@ -44,6 +59,8 @@ export class Login extends React.Component {
                     Login
                 </button>
             </div>
+
         );
+        }
     }
 }
