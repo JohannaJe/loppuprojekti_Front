@@ -4,24 +4,25 @@ import {kirjauduSisaan} from "./rekisteroityminen";
 import {Etusivu} from "./Etusivu";
 import {App} from "../App"
 import {isAuth} from "../App";
+//import { withRouter } from "react-router-dom";
 
 export class Login extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             usernameOrEmail: "",
             password: ""
         }
-
     }
 
 
 //state sisältää username ja password
     kirjaudu = () => {
         kirjauduSisaan(this.state, function(lista) {
-            this.setState({usernameOrEmail: "", password: ""});
+            this.props.logindone();
+            this.props.history.push("/");
         }.bind(this));
-
+        this.setState({usernameOrEmail: "", password: ""});
     }
 
 
@@ -43,7 +44,6 @@ export class Login extends React.Component {
 
     render(){
         var kirjautunut = this.props.kayttaja
-        console.log(kirjautunut)
         if (!true) {
             console.log("JEEA!")
             return(

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {
     Route,
     withRouter,
     Switch
 } from 'react-router-dom';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 
 import {NaviBar} from "./komponentit/NaviBar";
@@ -20,8 +20,10 @@ import {getCurrentUser} from "./komponentit/rekisteroityminen";
 // import LoadingIndicator from '../common/LoadingIndicator';
 // import PrivateRoute from '../common/PrivateRoute';
 
-import { Layout, notification } from 'antd';
-const { Content } = Layout;
+import {Layout, notification} from 'antd';
+
+const {Content} = Layout;
+
 // export const {isAuth}= this.state.isAuthenticated;
 
 class App extends Component {
@@ -68,7 +70,7 @@ class App extends Component {
     }
 
     // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
-    handleLogout(redirectTo="/", notificationType="success", description="You're successfully logged out.") {
+    handleLogout(redirectTo = "/", notificationType = "success", description = "You're successfully logged out.") {
         localStorage.removeItem('accessToken');
 
         this.setState({
@@ -95,48 +97,44 @@ class App extends Component {
             description: "You're successfully logged in.",
         });
         this.loadCurrentUser();
-        this.props.history.push("/");
+        //this.props.history.push("/");
     }
-
-
-
-
-
-
-
-
-
 
 
     render() {
         console.log('Onko autentikoitu', this.state.isAuthenticated)
-        if(this.state.isAuthenticated) {
+        if (this.state.isAuthenticated) {
             return (
-                <BrowserRouter>
+                <Router>
                     <div className="App">
                         <NaviBar kayttaja={this.state.isAuthenticated}/>
-                        {/*<Route path="/home" component={Etusivu}/>*/}
-                        <Route path="/login" component={Login}/>
-                        <Route path="/register" component={Register}/>
-                        <Route path="/logout" component={Logout}/>
-                        <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
-                        <Etusivu nakki={this.state.currentUser}/>
-                    </div>
-                </BrowserRouter>
+                        <Switch>      {/*<Route path="/home" component={Etusivu}/>*/}
+                            <Route path="/login" render={(props) => <Login history={this.props.history} kayttaja={this.state.currentUser}
+                                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                            <Route path="/register" component={Register}/>
+                            <Route path="/logout" component={Logout}/>
+                            <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu}
+                                          handleLogout={this.handleLogout}></PrivateRoute>
+                            <Etusivu nakki={this.state.currentUser}/>
+                        </Switch></div>
+                </Router>
             );
         } else {
             return (
-                <BrowserRouter>
+                <Router>
                     <div className="App">
                         <NaviBar authenticated={this.state.isAuthenticated}/>
                         {/*<Route path="/home" component={Etusivu}/>*/}
-                        <Route path="/login" component={Login}/>
-                        <Route path="/register" component={Register}/>
-                        <Route path="/logout" component={Logout}/>
-                        <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu} handleLogout={this.handleLogout}></PrivateRoute>
-
+                        <Switch>
+                            <Route path="/login" render={(props) => <Login logindone={this.handleLogin} kayttaja={this.state.currentUser}
+                                                                      isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                            <Route path="/register" component={Register}/>
+                            <Route path="/logout" component={Logout}/>
+                            <PrivateRoute authenticated={this.state.isAuthenticated} path="/home" component={Etusivu}
+                                          handleLogout={this.handleLogout}></PrivateRoute>
+                        </Switch>
                     </div>
-                </BrowserRouter>
+                </Router>
             );
         }
     }
