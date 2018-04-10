@@ -13,6 +13,19 @@ export function rekisteroityminen(User, callback) {
 }
 
 
+export function muokkaus(User, callback) {
+    console.log(JSON.stringify(User));
+    return fetch(palveluurl, {
+        method: 'UPDATE',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify(User)
+    })
+        .then((function(response) {
+            callback();
+        }));
+}
+
+
 
 const loginurl = '/api/auth/signin';
 

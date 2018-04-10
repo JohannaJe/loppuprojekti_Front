@@ -7,7 +7,7 @@ export class Logout extends React.Component {
         super(props);
         localStorage.removeItem('accessToken')
         this.props.logindone();
-        this.props.history.push("/home");
+        this.props.history.push("/");
 
     }
 
