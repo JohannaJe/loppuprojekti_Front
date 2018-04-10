@@ -1,11 +1,46 @@
 import React from 'react';
 import './Listaus.css';
+import {haeLista, taulukkoon, lahdetaulukko} from "./funktiot";
 
 
 export class Listaus extends React.Component {
+    state = {testiLista: []}
+
+    haeListaJaPaivita = () => {
+
+            // var data = this.props.data;
+            var data = this.props.kayttaja.data;
+            taulukkoon(data)
+        console.log('lähdetaulukko', lahdetaulukko)
+        haeLista(function (lista) {
+            this.setState({testiLista: lista, msg: null});
+            console.log(this.state.testiLista, 'Näkyy haettu lista');
+        }.bind(this), lahdetaulukko);
+
+
+    }
+
+    componentWillMount() {
+        if (this.props.isAuthenticated){
+            this.haeListaJaPaivita()
+        }
+    }
 
     render() {
-        var kaikki = this.props.lista.map(function (x, index) {
+        console.log(this.props.lista, 'LISTA')
+        console.log(this.props.isAuthenticated, 'Kirjautunu');
+        console.log(this.state.testiLista, 'NÄKYY RENDERISSÄ');
+        var lista;
+        if (this.props.isAuthenticated) {
+
+            lista = this.state.testiLista
+
+        } else {
+
+            lista = this.props.lista
+        }
+
+        var kaikki = lista.map(function (x, index) {
             return (
                 <div className="listausreuna" key={index}>
                     <div>

@@ -100,6 +100,8 @@ export class Register extends React.Component {
     render(){
         return(
             <div className = "registerreuna">
+                <p><b>Bravo! Let's create your bubble:</b></p>
+                <br/>
                 <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="name"/>
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
                 <input type="text" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email"/>
