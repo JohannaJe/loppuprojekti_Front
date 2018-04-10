@@ -32,7 +32,7 @@ export function kirjauduSisaan(User, callback) {
                     console.log(json)
                     console.log(json.accessToken)
                     localStorage.setItem('accessToken', json.accessToken);
-                    return json;
+                    callback(json);
                 }
 
 
