@@ -57,20 +57,19 @@ export class Etusivu extends Component {
 
 
         var kirjautunut = this.props.kayttaja
-        console.log(kirjautunut, 'JEPPP')
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">
-                    <p>HALOO</p>
+                    <Listaus lista={this.state.testiLista}/>
                 </div>
             );
 
         } else {
             return (
                 <div className="tausta">
-                    <Kuvaus/>
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS}
                                  BBC={this.toggleBBC}/>
+                    <Kuvaus/>
                     <Listaus lista={this.state.testiLista}/>
 
                 </div>
