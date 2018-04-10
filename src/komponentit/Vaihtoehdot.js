@@ -135,7 +135,7 @@ export class Vaihtoehdot extends React.Component {
             ;
 
 
-              
+
 
 
         } else {

@@ -15,27 +15,27 @@
 @media screen and (max-width: 839px) {
     a.linkki {
         font-size: 3vw;
-        color: red;
+        color: black;
         
     }
 
     .aikaleima {
         font-size: 3vw;
-        color: red;
+        color: black;
 
     }
 }
 
     @media screen and (min-width: 840px) {
         a.linkki {
-            background-color: deepskyblue;
+
             font-size: 2.5vw;
-            color: yellow;
+            color: black;
         }
 
         .aikaleima {
             font-size: 2.5vw;
-            color: yellow;
+            color: black;
 
         }
     }
@@ -43,12 +43,12 @@
     a.linkki {
 
         font-size: 2vw;
-        color: green;
+        color: black;
     }
 
     .aikaleima {
         font-size: 2vw;
-        color: green;
+        color: black;
 
     }
 }
