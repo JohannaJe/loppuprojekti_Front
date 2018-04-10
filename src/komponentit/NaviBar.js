@@ -33,7 +33,7 @@ export class NaviBar extends React.Component {
 
                             <div className="collapse navbar-collapse" id="mainNavBar">
                                 <ul className="nav navbar-nav navbar-right">
-                                    <li><Link to={"/home"}>Home</Link></li>
+                                    <li><Link to={"/"}>Home</Link></li>
                                     <li><Link to={"/register"}>Kirjautuneena: {kayttajanimi}</Link></li>
                                     <li><Link to={"/logout"}>Logout</Link></li>
                                 </ul>
@@ -71,7 +71,7 @@ export class NaviBar extends React.Component {
 
                         <div className="collapse navbar-collapse" id="mainNavBar">
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to={"/Etusivu"}>Home</Link></li>
+                                <li><Link to={"/"}>Home</Link></li>
                                 <li><Link to={"/register"}>Sign Up</Link></li>
                                 <li><Link to={"/login"}>Login</Link></li>
                                 </ul>

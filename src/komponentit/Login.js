@@ -16,7 +16,7 @@ export class Login extends React.Component {
     kirjaudu = () => {
         kirjauduSisaan(this.state, function(lista) {
             this.props.logindone();
-            this.props.history.push("/home");
+            this.props.history.push("/");
         }.bind(this));
         this.setState({usernameOrEmail: "", password: ""});
     }

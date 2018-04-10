@@ -10,15 +10,14 @@ export class Etusivu extends Component {
 
 
     haeListaJaPaivita = () => {
-        if (true) {
+        var kirjautunut = this.props.isAuthenticated
+        if (kirjautunut) {
 
-            var data = this.props.data;
+            // var data = this.props.data;
             var data = this.props.kayttaja.data;
-            var juttu = this.props.kayttaja.username;
-            console.log('jepA', juttu)
             taulukkoon(data)
         }
-        console.log('jes', data, lahdetaulukko)
+        console.log('lähdetaulukko', lahdetaulukko)
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
             console.log(this.state.testiLista);
@@ -55,13 +54,12 @@ export class Etusivu extends Component {
 
     render() {
 
-
-        var kirjautunut = this.props.kayttaja
-        console.log(kirjautunut, 'JEPPP')
+        var kirjautunut = this.props.isAuthenticated
+        console.log(kirjautunut, 'Kirjautumistieto siirtynyt Etusivulle')
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">
-                    <p>HALOO</p>
+                    <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut} haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
                 </div>
             );
 
@@ -71,7 +69,7 @@ export class Etusivu extends Component {
                     <Kuvaus/>
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS}
                                  BBC={this.toggleBBC}/>
-                    <Listaus lista={this.state.testiLista}/>
+                    <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut} haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
 
                 </div>
 

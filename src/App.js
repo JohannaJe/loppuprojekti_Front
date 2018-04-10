@@ -94,6 +94,10 @@ class App extends Component {
 
                         <NaviBar kayttaja={this.state.isAuthenticated} kayttajanimi={this.state.currentUser}/>
                         <Switch>
+                            <Route exact={true} path='/' render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
+                                                                                                         isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+
+
                             <Route path="/home" render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
                                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>>
                             <Route path="/login" render={(props) => <Login history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
