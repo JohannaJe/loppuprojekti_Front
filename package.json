@@ -6,6 +6,7 @@
   "dependencies": {
     "antd": "^3.4.1",
     "react": "^16.3.0",
+    "react-bootstrap-select": "^0.14.0",
     "react-dom": "^16.3.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.2"
