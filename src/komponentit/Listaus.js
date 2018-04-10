@@ -5,6 +5,8 @@ import './Listaus.css';
 export class Listaus extends React.Component {
 
     render() {
+        console.log(this.props.lista, 'LISTA')
+        console.log(this.props.isAuthenticated, 'Kirjautunu');
         var kaikki = this.props.lista.map(function (x, index) {
             return (
                 <div className="listausreuna" key={index}>

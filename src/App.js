@@ -75,22 +75,30 @@ class App extends Component {
     }
     render() {
         console.log('Onko autentikoitu? = ', this.state.isAuthenticated)
-        return (
-            <Router>
-                <div className="App">
-                    <NaviBar kayttaja={this.state.isAuthenticated} kayttajanimi={this.state.currentUser}/>
-                    <Switch>
-                        <Route exact={true} path='/' component={Etusivu} />
-                        <Route path="/home" render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
-                                                                        isAuthenticated={this.state.isAuthenticated} {...props}/>}/>>
-                        <Route path="/login" render={(props) => <Login history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
-                                                                       isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
-                        <Route path="/register" component={Register}/>
-                        <Route path="/logout" render={(props) => <Logout history={this.props.history} logindone={this.handleLogout} kayttaja={this.state.currentUser}
-                                                                         isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
-                    </Switch></div>
-            </Router>
-        );
+
+            return (
+                <Router>
+                    <div className="App">
+
+                        <NaviBar kayttaja={this.state.isAuthenticated} kayttajanimi={this.state.currentUser}/>
+                        <Switch>
+                            <Route exact={true} path='/' render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
+                                                                                                         isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+
+
+                            <Route path="/home" render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
+                                                                          isAuthenticated={this.state.isAuthenticated} {...props}/>}/>>
+                            <Route path="/login" render={(props) => <Login history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
+                                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                            <Route path="/register" component={Register}/>
+                            <Route path="/logout" render={(props) => <Logout history={this.props.history} logindone={this.handleLogout} kayttaja={this.state.currentUser}
+                                                                             isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                        </Switch></div>
+                </Router>
+            );
+
+
+
     }
 }
 export default App;
