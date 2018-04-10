@@ -23,12 +23,12 @@ export class Vaihtoehdot extends React.Component {
             <div className = "vaihtoehtoreuna">
 
 
-                <p><b>Pick your Picks, Pick!</b></p>
-                <br/>
 
-                HS: <input type="checkbox" checked={this.state} onChange={this.props.HS} />
-                IS: <input type="checkbox" checked={this.state} onChange={this.props.IS} />
-                BBC: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />
+
+                <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS} />
+                <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS} />
+                <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC} />
+                <br/>
                 <br/>
                 <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
                 <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/></button>

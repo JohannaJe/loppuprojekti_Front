@@ -115,7 +115,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="App">
                         <NaviBar kayttaja={this.state.isAuthenticated}/>
-                        {/*<Route path="/home" component={Etusivu}/>*/}
+                        <Route path="/home" component={Etusivu}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
                         <Route path="/logout" component={Logout}/>
@@ -129,7 +129,7 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="App">
                         <NaviBar authenticated={this.state.isAuthenticated}/>
-                        {/*<Route path="/home" component={Etusivu}/>*/}
+                        <Route path="/home" component={Etusivu}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
                         <Route path="/logout" component={Logout}/>
