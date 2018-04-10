@@ -60,16 +60,18 @@ export class Etusivu extends Component {
             return (
                 <div className="kayttajatili">
                     <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut} haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
+
                 </div>
             );
 
         } else {
             return (
                 <div className="tausta">
-                    <Kuvaus/>
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS}
                                  BBC={this.toggleBBC}/>
-                    <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut} haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
+
+                    <Kuvaus/>
+                    <Listaus lista={this.state.testiLista}/>
 
                 </div>
 
