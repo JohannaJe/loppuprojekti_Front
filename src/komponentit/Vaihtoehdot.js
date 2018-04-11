@@ -32,7 +32,16 @@ export class Vaihtoehdot extends React.Component {
             return (
                 <div className="vaihtoehtoreuna">
 
-               <table className="logo-rivi">
+                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
+                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
+                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
+                    <br/>
+                    <br/>
+                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
+
+
+                    <table className="logo-rivi">
                             <tr>
                                 <td>
                                     {/*CNN*/}
@@ -114,7 +123,7 @@ export class Vaihtoehdot extends React.Component {
                             </tr>
                         </table>
                         <form>
-                            <textarea className="feediLista"></textarea>
+                            <textarea rows="3" cols="50" className="feediLista"></textarea>
                             <br/>
                             <input type="submit" value="Cancel"/>
                             <input type="submit" value="Clear"/>
@@ -122,14 +131,6 @@ export class Vaihtoehdot extends React.Component {
                         </form>
 
 
-
-                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-                    <br/>
-                    <br/>
-                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
 
 
 
@@ -155,6 +156,15 @@ export class Vaihtoehdot extends React.Component {
 
             return (
                 <div className="vaihtoehtoreuna">
+
+                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
+                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
+                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
+                    <br/>
+                    <br/>
+                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
+
 
                     <table className="logo-rivi">
                         <tr>
@@ -245,15 +255,6 @@ export class Vaihtoehdot extends React.Component {
                         <input type="submit" value="Confirm"/>
                     </form>
 
-
-
-                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-                    <br/>
-                    <br/>
-                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
 
 
 
