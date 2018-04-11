@@ -105,7 +105,7 @@ export class Register extends React.Component {
                 <br/>
                 <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="name"/>
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
-                <input type="text" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email"/>
+                <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email" required/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
                 {/*<input type="text" value={this.state.data} onChange={(event) => this.giveData(event)} placeholder="data"/>*/}
                 {/*<button onClick={this.giveData.bind(this)}>Datanappi</button>*/}
