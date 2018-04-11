@@ -16,6 +16,8 @@ export class Listaus extends React.Component {
             console.log(this.state.kirjautuneenLista, 'Näkyy haettu lista');
         }.bind(this), kirjautuneentaulukko);
 
+        kirjautuneentaulukko.splice(0,kirjautuneentaulukko.length)
+
         // this.setState({
         //     testiLista: []
         // });
