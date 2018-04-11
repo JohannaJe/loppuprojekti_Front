@@ -31,12 +31,14 @@ export class Vaihtoehdot extends React.Component {
             return (
                 <div className="vaihtoehtoreuna">
 
-
-
-                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
-                    <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
-                    </button>
+                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
+                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
+                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
+                    <br/>
+                    <br/>
+                    <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
+                    <br/>
+                    <br/>
 
                     <table className="logo-rivi">
                         <tr>
@@ -120,6 +122,12 @@ export class Vaihtoehdot extends React.Component {
 
                         </tr>
                     </table>
+                    <br/>
+                    <br/>
+                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+                    <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
+                    <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
+                    </button>
                     <form>
                         <textarea className="feediLista"></textarea>
                         <br/>
@@ -127,14 +135,6 @@ export class Vaihtoehdot extends React.Component {
                         <input type="submit" value="Clear"/>
                         <input type="submit" value="Confirm"/>
                     </form>
-            <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-            <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-            <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-            <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-            <br/>
-            <br/>
-            <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
-
 
 
 
@@ -157,9 +157,13 @@ export class Vaihtoehdot extends React.Component {
 
 
 
+
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 
 
+
+                    <br/>
+                    <br/>
                     <table className="logo-rivi">
                         <tr>
                             <td>
@@ -241,7 +245,14 @@ export class Vaihtoehdot extends React.Component {
 
                         </tr>
                     </table>
-
+                    <br/>
+                    <br/>
+                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+                    <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
+                    <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
+                    </button>
+                    <br/>
+                    <br/>
                     <form>
                         <textarea className="feediLista"></textarea>
                         <br/>
@@ -250,15 +261,6 @@ export class Vaihtoehdot extends React.Component {
                         <input type="submit" value="Confirm"/>
                     </form>
 
-
-
-                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-                    <br/>
-                    <br/>
-                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
 
 
 

@@ -1,6 +1,13 @@
 .kuvaus {
-    margin-top: 4cm;
-    margin-right: 10.5cm;
-    font-size: large;
+    margin-top: -3%;
+    margin-left: -30%;
+    font-size: 1vw;
     font-family: "Courier New";
+    width: 100%;
+    length: 100%;
+}
+
+.bubble {
+    font-size: 2vw;
+    font-style: italic;
 }
