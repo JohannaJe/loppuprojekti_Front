@@ -9,7 +9,7 @@ export class MyPage extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="omasivu">
                 <Vaihtoehdot isAuthenticated={this.props.isAuthenticated}/>
             </div>
         );

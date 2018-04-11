@@ -1,11 +1,13 @@
 body {
-  background-image: url("./valko3.jpg");
+  background-image: url("./valkoinen.jpg");
   background-repeat: no-repeat;
   background-attachment :fixed;
-  background-position: center;
+  background-position: top;
   background-size: cover;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
 }
+
