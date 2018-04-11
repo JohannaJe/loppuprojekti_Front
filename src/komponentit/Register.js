@@ -39,7 +39,7 @@ export class Register extends React.Component {
         rekisteroityminen(tmpdata, function(lista) {
             this.setState({name: "", username: "", email: "", password: "",  data: []});
             lahdetaulukko.splice(0,lahdetaulukko.length)
-            
+
             this.props.history.push("/login");
         }.bind(this));
 

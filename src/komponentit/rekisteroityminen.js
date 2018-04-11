@@ -1,4 +1,11 @@
+// import {notification} from "antd/lib/index";
+import {notification} from 'antd';
 const palveluurl = '/api/auth/signup';
+notification.config({
+    placement: 'topRight',
+    top: 70,
+    duration: 3,
+});
 
 export function rekisteroityminen(User, callback) {
     console.log(JSON.stringify(User));
@@ -40,7 +47,14 @@ export function kirjauduSisaan(User, callback) {
             response.json()
                 .then(json => {
                 if(!response.ok) {
-                    return Promise.reject(json);
+                    console.log('VÄÄRÄ TUNNUS TAI SALIS')
+
+                    notification.success({
+                        message: 'Wrong username or password.',
+                        description: "Please try again.",
+                    });
+
+
                 } else {
                     console.log(json)
                     console.log(json.accessToken)
