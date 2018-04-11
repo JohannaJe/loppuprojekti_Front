@@ -1,4 +1,11 @@
+// import {notification} from "antd/lib/index";
+import {notification} from 'antd';
 const palveluurl = '/api/auth/signup';
+notification.config({
+    placement: 'topLeft',
+    top: 70,
+    duration: 3,
+});
 
 export function rekisteroityminen(User, callback) {
     console.log(JSON.stringify(User));
@@ -8,7 +15,33 @@ export function rekisteroityminen(User, callback) {
         body: JSON.stringify(User)
     })
         .then((function(response) {
-            callback();
+            if (response.status === 200)
+                callback();
+            else if (response.status===400) {
+                console.log('uuuuu', response.error)
+                response.json().then((data) => {
+                    console.log(data.message, 'VASTAUS BODY');
+                    callback(null, data.message)
+
+                    notification.success({
+                        message: data.message,
+                        description: "Please try again.",
+                    });
+
+                });
+
+
+
+            }
+
+
+            else {
+                console.log(response, 'aaa')
+                console.log("TEE TÄHÄN JOTAIN PIAN, jos esim internal server error")
+            }
+
+
+
         }));
 }
 
@@ -40,7 +73,14 @@ export function kirjauduSisaan(User, callback) {
             response.json()
                 .then(json => {
                 if(!response.ok) {
-                    return Promise.reject(json);
+                    console.log('VÄÄRÄ TUNNUS TAI SALIS')
+
+                    notification.success({
+                        message: 'Wrong username or password.',
+                        description: "Please try again.",
+                    });
+
+
                 } else {
                     console.log(json)
                     console.log(json.accessToken)
