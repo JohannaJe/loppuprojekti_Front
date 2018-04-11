@@ -55,7 +55,7 @@
 }
 
 .drop-menu {
-    /*position: relative;*/
+    position: relative;
     width: 10%;
 
 }
@@ -69,5 +69,7 @@
 }
 
 
-
+.btn-save btn btn-primary btn-sm {
+    position: relative;
+}
 

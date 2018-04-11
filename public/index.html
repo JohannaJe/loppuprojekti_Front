@@ -41,7 +41,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <!--&lt;!&ndash; Include Twitter Bootstrap and jQuery: &ndash;&gt;-->
+    <!-- Include Twitter Bootstrap and jQuery: -->
     <!--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>-->
     <!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
     <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
@@ -52,3 +52,12 @@
 
   </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#example-getting-started').multiselect({
+            nonSelectedText: 'Select ingredients',
+            buttonWidth: '5%',
+        })
+    });
+</script>

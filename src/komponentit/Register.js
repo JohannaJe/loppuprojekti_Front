@@ -3,6 +3,8 @@ import './Register.css';
 import {rekisteroityminen} from "./rekisteroityminen";
 import {haeLista, lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
 import {Vaihtoehdot} from "./Vaihtoehdot";
+import {notification} from "antd/lib/index";
+import Login from './Login'
 
 
 
@@ -36,9 +38,12 @@ export class Register extends React.Component {
 
         rekisteroityminen(tmpdata, function(lista) {
             this.setState({name: "", username: "", email: "", password: "",  data: []});
+            lahdetaulukko.splice(0,lahdetaulukko.length)
+            
+            this.props.history.push("/login");
         }.bind(this));
 
-        lahdetaulukko.splice(0,lahdetaulukko.length)
+
 
     }
 
