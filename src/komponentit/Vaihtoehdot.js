@@ -33,14 +33,6 @@ export class Vaihtoehdot extends React.Component {
 
 
 
-                    {/*<select id="example-getting-started" multiple="multiple">*/}
-                        {/*<option value="cheese">Cheese</option>*/}
-                        {/*<option value="tomatoes">Tomatoes</option>*/}
-                        {/*<option value="mozarella">Mozzarella</option>*/}
-                        {/*<option value="mushrooms">Mushrooms</option>*/}
-                        {/*<option value="pepperoni">Pepperoni</option>*/}
-                        {/*<option value="onions">Onions</option>*/}
-                    {/*</select>*/}
                     <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
                     <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
@@ -135,6 +127,20 @@ export class Vaihtoehdot extends React.Component {
                         <input type="submit" value="Clear"/>
                         <input type="submit" value="Confirm"/>
                     </form>
+            <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+            <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
+            <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
+            <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
+            <br/>
+            <br/>
+            <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
+
+
+
+
+            <button className="myBtn" onClick={this.topFunction} title="Go to top"><i
+                className="icon-chevron-up"/>
+            </button>
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
                 </div>
 
@@ -144,24 +150,128 @@ export class Vaihtoehdot extends React.Component {
 
 
         } else {
-            return (
 
-            <div className="vaihtoehtoreuna">
-                <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-            <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-            <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-            <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-            <br/>
-            <br/>
-            <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
-            <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
-            </button>
+
+            return (
+                <div className="vaihtoehtoreuna">
 
 
 
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-                </div>
+                
 
+                    <table className="logo-rivi">
+                        <tr>
+                            <td>
+                                {/*CNN*/}
+                                <div className="drop-menu">
+                                    <button> <img src={CNNlogo600} width="40vw" height="40vh"/> </button>
+
+
+                                    <select className="mdb-select">
+                                        <option value="" disabled selected>Pick your favorites</option>
+                                        <option value="CNN-latest">Latest</option>
+                                        <option value="CNN-top stories">Top Stories</option>
+                                        <option value="CNN-world">World</option>
+                                        <option value="CNN-science & space">Science & Space</option>
+                                        <option value="CNN-entertainment">Entertainment</option>
+                                        <option value="CNN-sports">Sports</option>
+                                    </select>
+                                    <br/>
+                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                </div>
+                            </td>
+
+                            <td>
+                                {/*BBC*/}
+                                <div className="drop-menu">
+                                    <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
+
+                                    <select className="mdb-select" >
+                                        <option value="" disabled selected>Pick your favorites</option>
+                                        <option value="1">World</option>
+                                        <option value="2">Business</option>
+                                        <option value="3">Politics</option>
+                                        <option value="4">Health</option>
+                                    </select>
+
+                                    <br/>
+                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                </div>
+                            </td>
+
+                            <td>
+                                {/*HS*/}
+                                <div className="drop-menu">
+                                    <button><img src={HSlogo} width="40vw" height="40vh"/></button>
+                                    <select className="mdb-select">
+                                        <option value="" disabled selected>Pick your favorites</option>
+                                        <option value="1">Latest</option>
+                                        <option value="2">Homeland</option>
+                                        <option value="3">World</option>
+                                        <option value="4">Economy</option>
+                                        <option value="5">Politics</option>
+                                        <option value="6">Sports</option>
+
+                                    </select>
+                                    <br/>
+                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                </div>
+                            </td>
+
+                            <td>
+                                {/*IS*/}
+                                <div className="drop-menu">
+                                    <button><img src={ISlogo} width="40vw" height="40vh"/></button>
+                                    <select className="mdb-select" >
+                                        <option value="" disabled selected>Pick your favorites</option>
+                                        <option value="1">Latest</option>
+                                        <option value="2">Homeland</option>
+                                        <option value="3">World</option>
+                                        <option value="4">Economy</option>
+                                        <option value="5">Entertainment</option>
+                                        <option value="6">Music</option>
+                                        <option value="7">Sports</option>
+
+                                    </select>
+                                    <br/>
+                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <form>
+                        <textarea className="feediLista"></textarea>
+                        <br/>
+                        <input type="submit" value="Cancel"/>
+                        <input type="submit" value="Clear"/>
+                        <input type="submit" value="Confirm"/>
+                    </form>
+
+
+
+                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
+                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
+                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
+                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
+                    <br/>
+                    <br/>
+                    <button className="btn btn-info" onClick={this.props.haefunktio}>Search</button>
+
+
+
+
+                    <button className="myBtn" onClick={this.topFunction} title="Go to top">
+                        <i className="icon-chevron-up"/>
+                    </button>
+
+
+                    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+
+
+                </div>
 
             );
         }
