@@ -118,6 +118,7 @@ export class Register extends React.Component {
             <div className = "registerreuna">
                 <p><b>Bravo! Let's create your bubble:</b></p>
                 <br/>
+                <br/>
                 <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="name"/>
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
                 <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email" required/>
@@ -125,6 +126,8 @@ export class Register extends React.Component {
                 <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
+                <br/>
+                <br/>
                 <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
             </div>
         );
