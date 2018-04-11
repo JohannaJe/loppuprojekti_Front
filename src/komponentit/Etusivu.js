@@ -18,6 +18,7 @@ export class Etusivu extends Component {
             taulukkoon(data)
         }
         console.log('lähdetaulukko', lahdetaulukko)
+
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
             console.log(this.state.testiLista);

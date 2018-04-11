@@ -158,7 +158,7 @@ export class Vaihtoehdot extends React.Component {
 
 
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-                
+
 
                     <table className="logo-rivi">
                         <tr>
