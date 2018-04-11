@@ -1,21 +1,24 @@
 import React from 'react';
 import './Listaus.css';
-import {haeLista, taulukkoon, lahdetaulukko} from "./funktiot";
+import {haeLista, taulukkoon, lahdetaulukko, kirjautuneentaulukko, kirjautuneenTaulukkoon} from "./funktiot";
 
 
 export class Listaus extends React.Component {
-    state = {testiLista: []}
+    state = {kirjautuneenLista: []}
 
     haeListaJaPaivita = () => {
-
-            // var data = this.props.data;
             var data = this.props.kayttaja.data;
-            taulukkoon(data)
+            console.log('KÄYTDAT', data)
+            kirjautuneenTaulukkoon(data)
         console.log('lähdetaulukko', lahdetaulukko)
         haeLista(function (lista) {
-            this.setState({testiLista: lista, msg: null});
-            console.log(this.state.testiLista, 'Näkyy haettu lista');
-        }.bind(this), lahdetaulukko);
+            this.setState({kirjautuneenLista: lista, msg: null});
+            console.log(this.state.kirjautuneenLista, 'Näkyy haettu lista');
+        }.bind(this), kirjautuneentaulukko);
+
+        // this.setState({
+        //     testiLista: []
+        // });
 
 
     }
@@ -23,6 +26,7 @@ export class Listaus extends React.Component {
     componentWillMount() {
         if (this.props.isAuthenticated){
             this.haeListaJaPaivita()
+
         }
     }
 
@@ -33,10 +37,11 @@ export class Listaus extends React.Component {
         var lista;
         if (this.props.isAuthenticated) {
 
-            lista = this.state.testiLista
+            lista = this.state.kirjautuneenLista
+            console.log('INES')
 
         } else {
-
+            console.log('OUTES')
             lista = this.props.lista
         }
 
