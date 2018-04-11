@@ -23,6 +23,8 @@ export class Etusivu extends Component {
             console.log(this.state.testiLista);
         }.bind(this), lahdetaulukko);
 
+        lahdetaulukko.splice(0,lahdetaulukko.length)
+
 
     }
 
