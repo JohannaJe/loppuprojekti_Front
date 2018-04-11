@@ -134,8 +134,7 @@ export class Vaihtoehdot extends React.Component {
         } else {
             return (
             <div className="vaihtoehtoreuna">
-
-
+                <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
             <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
             <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
             <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>

@@ -18,24 +18,26 @@ export class Register extends React.Component {
         }
     }
 
-    componentWillMount() {
-
-        //tänne ehkä jtn, esim taulukon täyttö ennen kun se stringifyiataan
-
-    }
-
-
-
     uusiHenkilo = () => {
 
+        // if (true) {
+        //     var data = "";
+        //     taulukkoon(data)
+        // }
+        // console.log('jes', data, lahdetaulukko);
+        // haeLista(function (lista) {
+        // }.bind(this), lahdetaulukko);
 
 
+        taulukkoon(this.state.urltxt);
+        let tmpdata = this.state;
+        tmpdata.data = JSON.stringify(lahdetaulukko);
 
-        console.log('TÄÄÄ', this.state.data)
-        rekisteroityminen(this.state, function(lista) {
-            this.setState({name: "", username: "", email: "", password: "",  data: ""});
+        rekisteroityminen(tmpdata, function(lista) {
+            this.setState({name: "", username: "", email: "", password: "",  data: []});
         }.bind(this));
 
+        lahdetaulukko.splice(0,lahdetaulukko.length)
 
     }
 
@@ -59,18 +61,25 @@ export class Register extends React.Component {
 
     giveName(event){
         this.setState({
-            name: event.target.value,
-            data: []//JSON.stringify(lahdetaulukko)    tänne lähteet stringinä
+            name: event.target.value
         });
     }
 
-    // giveData(event){
-    //     console.log('AAAAAAAAAAA')
-    //     this.setState({
-    //        data: event.target.value
-    //     });
-    //     console.log(JSON.stringify(lahdetaulukko), 'JOOOOO')
-    // }
+    giveData(){
+//        taulukkoon(this.state.urltxt);
+        this.setState({
+
+            data: JSON.stringify(lahdetaulukko
+
+            )
+        });
+    }
+
+    toggleURL = (event) => {
+
+        //taulukkoon(event.target.value);
+        this.setState({urltxt: event.target.value});
+    }
 
     toggleHS = () => {
         if (lahdetaulukko.indexOf("HS") > -1) {
@@ -107,14 +116,11 @@ export class Register extends React.Component {
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
                 <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email" required/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
-                {/*<input type="text" value={this.state.data} onChange={(event) => this.giveData(event)} placeholder="data"/>*/}
-                {/*<button onClick={this.giveData.bind(this)}>Datanappi</button>*/}
                 <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
-                <Vaihtoehdot  HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
+                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
             </div>
         );
     }
 }
-
