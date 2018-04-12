@@ -2,7 +2,8 @@ import React from 'react';
 import './Register.css';
 import {rekisteroityminen} from "./rekisteroityminen";
 import {lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
-import {Vaihtoehdot} from "./Vaihtoehdot";
+import "./RekisteroityvanVaihtoehdot";
+import {RekisteroityvanVaihtoehdot} from "./RekisteroityvanVaihtoehdot";
 
 
 export class Register extends React.Component {
@@ -115,7 +116,7 @@ export class Register extends React.Component {
                     <p><b> 3. Pick a username and a password. </b></p>
                     <p><b>4. Press "Sign up".</b></p>
                 </div>
-                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}
+                <RekisteroityvanVaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}
                              CNN={this.toggleCNN}/>
                 <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)}
                        placeholder="Name (3-40 characters)"/>

@@ -42,7 +42,7 @@ export class Listaus extends React.Component {
                 <div className="listausreuna" key={index}>
                     <div>
                         <p className="aikaleima">{x.aikaleimaString}</p>
-                        <p><a href={x.linkki}><img className="img-responsive img-thumbnail center-block" alt=""
+                        <p><a target="_blank" href={x.linkki}><img className="img-responsive img-thumbnail center-block" alt=""
                                                    src={x.kuva}
                                                    width="30%" height="20%"/></a></p>
                         <p id="otsikkolinkki"><a class="linkki" target="_blank" href={x.linkki}>{x.otsikko}</a></p>
