@@ -6,7 +6,7 @@ import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
 import Listaus from './Listaus'
 import {kirjauduSisaan, lahetaPaivitettavaData} from "./rekisteroityminen";
-import {lahdetaulukko} from "./funktiot";
+import {lahdetaulukko, taulukkoon} from "./funktiot";
 
 export class Vaihtoehdot extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export class Vaihtoehdot extends React.Component {
         let tmpdata = this.state;
         tmpdata.username = kayttajaDude;
         // console.log('TÄÄÄ STATE', this.state.username)
-        lahetaPaivitettavaData(tmpdata, function(lista) {
+        lahetaPaivitettavaData(tmpdata, function (lista) {
             // this.props.logindone();
             // this.props.history.push("/");
         }.bind(this));
@@ -48,6 +48,27 @@ export class Vaihtoehdot extends React.Component {
         document.documentElement.scrollTop = 0;
     };
 
+    ISnappi = () => {
+
+        taulukkoon(this.refs.IS.value);
+
+    }
+
+    HSnappi = () => {
+
+        taulukkoon(this.refs.HS.value);
+
+    }
+    BBCnappi = () => {
+
+        taulukkoon(this.refs.BBC.value);
+
+    }
+    CNNnappi = () => {
+
+        taulukkoon(this.refs.CNN.value);
+
+    }
 
 
     render() {
@@ -112,7 +133,7 @@ export class Vaihtoehdot extends React.Component {
                                 {/*HS*/}
                                 <div className="drop-menu">
                                     <button><img src={HSlogo} width="40vw" height="40vh"/></button>
-                                     <select className="mdb-select">
+                                    <select className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="HS-tuoreimmat">Latest</option>
                                         <option value="HS-kotimaa">Homeland</option>
@@ -166,10 +187,9 @@ export class Vaihtoehdot extends React.Component {
                     </form>
 
 
-
-            <button className="myBtn" onClick={this.topFunction} title="Go to top"><i
-                className="icon-chevron-up"/>
-            </button>
+                    <button className="myBtn" onClick={this.topFunction} title="Go to top"><i
+                        className="icon-chevron-up"/>
+                    </button>
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
                 </div>
 
@@ -187,8 +207,6 @@ export class Vaihtoehdot extends React.Component {
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 
 
-
-
                     <br/>
                     <br/>
                     <table className="logo-rivi">
@@ -196,10 +214,10 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*CNN*/}
                                 <div className="drop-menu">
-                                    <button> <img src={CNNlogo600} width="40vw" height="40vh"/> </button>
+                                    <button><img src={CNNlogo600} width="40vw" height="40vh"/></button>
 
 
-                                    <select className="mdb-select">
+                                    <select className="mdb-select" ref="CNN">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="CNN-latest">Latest</option>
                                         <option value="CNN-top stories">Top Stories</option>
@@ -211,7 +229,9 @@ export class Vaihtoehdot extends React.Component {
                                     <br/>
 
 
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.props.CNN}>CNN-nappi</button>
+                                    <button className="btn-save btn btn-primary btn-sm"
+                                            onClick={this.CNNnappi}>CNN-nappi
+                                    </button>
 
 
                                 </div>
@@ -222,7 +242,7 @@ export class Vaihtoehdot extends React.Component {
                                 <div className="drop-menu">
                                     <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
 
-                                    <select className="mdb-select" >
+                                    <select className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="1">World</option>
                                         <option value="2">Business</option>
@@ -258,7 +278,7 @@ export class Vaihtoehdot extends React.Component {
                                 {/*IS*/}
                                 <div className="drop-menu">
                                     <button><img src={ISlogo} width="40vw" height="40vh"/></button>
-                                    <select className="mdb-select" >
+                                    <select className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="1">Latest</option>
                                         <option value="2">Homeland</option>
