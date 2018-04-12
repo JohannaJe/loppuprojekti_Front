@@ -35,7 +35,7 @@ export class NaviBar extends React.Component {
                                 <ul className="nav navbar-nav navbar-right">
 
                                     <li><Link to={"/"}>Home</Link></li>
-                                    <li><Link to={"/mypage"}>Kirjautuneena: {kayttajanimi}</Link></li>
+                                    <li><Link to={"/mypage"}>Signed in: {kayttajanimi}</Link></li>
 
                                     <li><Link to={"/logout"}>Logout</Link></li>
                                 </ul>

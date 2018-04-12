@@ -252,27 +252,20 @@ export class Vaihtoehdot extends React.Component {
                     </table>
                     <br/>
                     <br/>
-                    <br/>
                     <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
                     <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
                     </button>
                     <br/>
                     <br/>
-                    <br/>
                     <form>
                         <textarea className="feediLista"></textarea>
-                        <br/>
                         <br/>
                         <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
                         <button className="btn btn-primary" type="submit" value="Confirm">Confirm</button>
                     </form>
-
-
-
-
-
+                    <br/>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top">
                         <i className="icon-chevron-up"/>
                     </button>
