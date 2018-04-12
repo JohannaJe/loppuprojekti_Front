@@ -113,6 +113,14 @@ export class Register extends React.Component {
         }
     }
 
+    toggleCNN = () => {
+        taulukkoon("CNN-latest");
+        console.log("CNN-testi SAATANA");
+
+    }
+
+
+
     render(){
         return(
             <div className = "registerreuna">
@@ -128,7 +136,7 @@ export class Register extends React.Component {
                 </button>
                 <br/>
                 <br/>
-                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
+                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC} CNN={this.toggleCNN}/>
             </div>
         );
     }

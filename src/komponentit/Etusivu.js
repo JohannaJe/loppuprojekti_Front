@@ -37,6 +37,12 @@ export class Etusivu extends Component {
 
     }
 
+    toggleCNN = () => {
+            taulukkoon("CNN-latest");
+            console.log("CNN-testi SAATANA");
+
+    }
+
     toggleIS = () => {
         if (lahdetaulukko.indexOf("IS") > -1) {
             poistaTaulukosta("IS");
@@ -70,7 +76,7 @@ export class Etusivu extends Component {
             return (
                 <div className="tausta">
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS}
-                                 BBC={this.toggleBBC}/>
+                                 BBC={this.toggleBBC} CNN={this.toggleCNN}/>
 
                     <Kuvaus/>
                     <Listaus lista={this.state.testiLista}/>
