@@ -113,22 +113,32 @@ export class Register extends React.Component {
         }
     }
 
+    toggleCNN = () => {
+        taulukkoon("CNN-latest");
+        console.log("CNN-testi SAATANA");
+
+    }
+
+
+
     render(){
         return(
             <div className = "registerreuna">
-                <p><b>Bravo! Let's create your bubble:</b></p>
-                <br/>
-                <br/>
-                <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="name"/>
-                <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="username"/>
-                <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="email" required/>
-                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
+                <div className="teksti">
+                <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
+                    <p><b>1. Add your preferences by clicking the choices.</b></p>
+                    <p><b>2. AND/OR write the addresses of your favourite websites in the URL box. </b></p>
+                        <p><b> 3. Pick a username and a password. </b></p>
+                <p><b>4. Press "Sign up".</b></p>
+                </div>
+                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC} CNN={this.toggleCNN}/>
+                <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="Name (3-40 characters)"/>
+                <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="Username (3-15 characters)"/>
+                <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="Email (max 40 characters)" required/>
+                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="Password (6-20 characters) "/>
                 <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
-                <br/>
-                <br/>
-                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}/>
             </div>
         );
     }

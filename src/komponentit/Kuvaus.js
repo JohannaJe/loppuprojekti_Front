@@ -5,10 +5,9 @@ export class Kuvaus extends React.Component {
     render(){
         return(
             <div className = "kuvaus">
-                    <p><b>Tired of other people's news? </b></p>
-                    <p><b><font color="#0099ff">Need4Feed</font> helps you to create your own personal news feed.</b></p>
-                    <p><b>You can read only about the things you like!</b></p>
-                    <p><b>Just sign up and build </b></p>
+                    <p><b>With <font color="#0099ff">Need4Feed</font> you can save your preferences </b></p>
+                    <p><b>and create your own feed with only the news that you like!</b></p>
+                    <p><b>Just <a href={"/register"}> SIGN UP </a> and build </b></p>
                     <p></p>
                     <br/>
                 <div className = "bubble">
