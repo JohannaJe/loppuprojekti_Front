@@ -160,9 +160,9 @@ export class Vaihtoehdot extends React.Component {
                     <form>
                         <textarea className="feediLista"></textarea>
                         <br/>
-                        <input type="submit" value="Cancel"/>
-                        <input type="submit" value="Clear"/>
-                        <input type="submit" value="UPDATE" onClick={this.paivitaData}/>
+                        <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
+                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+                        <button className="btn btn-primary" type="submit" onClick={this.paivitaData}>UPDATE</button>
                     </form>
 
 

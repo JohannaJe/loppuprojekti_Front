@@ -77,7 +77,7 @@ export class Etusivu extends Component {
                 <div className="tausta">
                     <div className="intro">
                     <p><b>Welcome to be feeded with the kind of news that YOU want!</b></p>
-                    <p><b> Just pick your favourites by clicking the choices or write a website address in the URL box. </b></p>
+                    <p><b> Just pick your favourites by clicking the choices or write a feed source url in the URL box. </b></p>
                         <p><b><font color="#0099ff">Need4Feed</font> gets your news. </b></p>
                     </div>
                     <br/>
