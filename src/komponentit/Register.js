@@ -18,6 +18,12 @@ export class Register extends React.Component {
             password: "",
             data: ""
         }
+
+        // const {name} = this.state;
+        // const kaa = this.state.name
+        // const isEnabled =
+        //     kaa.length = 0 //&&
+        //     // password.length > 0;
     }
 
     uusiHenkilo = () => {
@@ -115,7 +121,7 @@ export class Register extends React.Component {
 
     toggleCNN = () => {
         taulukkoon("CNN-latest");
-        console.log("CNN-testi SAATANA");
+
 
     }
 
@@ -127,7 +133,7 @@ export class Register extends React.Component {
                 <div className="teksti">
                 <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
                     <p><b>1. Add your preferences by clicking the choices.</b></p>
-                    <p><b>2. AND/OR write the addresses of your favourite websites in the URL box. </b></p>
+                    <p><b>2. Write a feed source url in the URL box. </b></p>
                         <p><b> 3. Pick a username and a password. </b></p>
                 <p><b>4. Press "Sign up".</b></p>
                 </div>
@@ -136,7 +142,9 @@ export class Register extends React.Component {
                 <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="Username (3-15 characters)"/>
                 <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="Email (max 40 characters)" required/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="Password (6-20 characters) "/>
-                <button onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
+                <button disabled={((this.state.name.length < 3 || this.state.name.length > 40) || (this.state.username.length < 3 || this.state.username.length > 15) ||
+                    (this.state.email.length > 40) || (this.state.password.length < 6 || this.state.password.length > 20))
+                } onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
             </div>

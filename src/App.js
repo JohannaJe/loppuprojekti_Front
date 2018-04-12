@@ -30,9 +30,8 @@ class App extends Component {
         this.setState({
             isLoading: true
         });
-        getCurrentUser()
+        return getCurrentUser()
             .then(response => {
-                console.log('Nykyisen käyttäjän tiedot', response)
                 this.setState({
                     currentUser: response,
                     isAuthenticated: true,
@@ -74,7 +73,6 @@ class App extends Component {
         //this.props.history.push("/");
     }
     render() {
-        console.log('Onko autentikoitu? = ', this.state.isAuthenticated)
 
 
             return (
@@ -92,7 +90,7 @@ class App extends Component {
                             <Route path="/login" render={(props) => <Login history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
                                                                            isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
                             <Route path="/mypage"
-                                   render={(props) => <MyPage history={this.props.history} logindone={this.handleLogout}
+                                   render={(props) => <MyPage appi={this.loadCurrentUser} history={this.props.history} logindone={this.handleLogout}
                                                               kayttaja={this.state.currentUser}
                                                               isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
 

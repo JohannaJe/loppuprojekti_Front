@@ -17,11 +17,10 @@ export class Etusivu extends Component {
             var data = this.props.kayttaja.data;
             taulukkoon(data)
         }
-        console.log('lähdetaulukko', lahdetaulukko)
 
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
-            console.log(this.state.testiLista);
+
         }.bind(this), lahdetaulukko);
 
         lahdetaulukko.splice(0,lahdetaulukko.length)
@@ -40,7 +39,7 @@ export class Etusivu extends Component {
 
     toggleCNN = () => {
             taulukkoon("CNN-latest");
-            console.log("CNN-testi SAATANA");
+
 
     }
 
@@ -64,7 +63,6 @@ export class Etusivu extends Component {
     render() {
 
         var kirjautunut = this.props.isAuthenticated
-        console.log(kirjautunut, 'Kirjautumistieto siirtynyt Etusivulle')
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">
@@ -78,7 +76,7 @@ export class Etusivu extends Component {
                 <div className="tausta">
                     <div className="intro">
                     <p><b>Welcome to be feeded with the kind of news that YOU want!</b></p>
-                    <p><b> Just pick your favourites by clicking the choices or write a website address in the URL box. </b></p>
+                    <p><b> Just pick your favourites by clicking the choices or write a feed source url in the URL box. </b></p>
                         <p><b><font color="#0099ff">Need4Feed</font> gets your news. </b></p>
                     </div>
                     <br/>
