@@ -194,7 +194,7 @@ export class Vaihtoehdot extends React.Component {
                         <br/>
 
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
-                        <input type="submit" value="UPDATE" onClick={this.paivitaData}/>
+                        <button className="btn btn-primary" type="submit" onClick={this.paivitaData}>UPDATE</button>
                     </form>
 
 

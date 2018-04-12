@@ -121,14 +121,9 @@ export class Register extends React.Component {
 
     toggleCNN = () => {
         taulukkoon("CNN-latest");
-        console.log("CNN-testi SAATANA");
+
 
     }
-
-
-
-
-
 
 
 
@@ -138,7 +133,7 @@ export class Register extends React.Component {
                 <div className="teksti">
                 <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
                     <p><b>1. Add your preferences by clicking the choices.</b></p>
-                    <p><b>2. AND/OR write the addresses of your favourite websites in the URL box. </b></p>
+                    <p><b>2. Write a feed source url in the URL box. </b></p>
                         <p><b> 3. Pick a username and a password. </b></p>
                 <p><b>4. Press "Sign up".</b></p>
                 </div>

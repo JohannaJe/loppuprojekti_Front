@@ -6,7 +6,6 @@ export class NaviBar extends React.Component {
 
     render() {
         var kirjautunut = this.props.kayttaja
-        // console.log(this.props.kayttajanimi.name)
 
         if (kirjautunut) {
             var kayttajanimi = this.props.kayttajanimi.username;
