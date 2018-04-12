@@ -10,6 +10,8 @@ export class Etusivu extends Component {
 
 
     haeListaJaPaivita = () => {
+        console.log('kaks')
+
         var kirjautunut = this.props.isAuthenticated
         if (kirjautunut) {
 

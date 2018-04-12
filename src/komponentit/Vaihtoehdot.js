@@ -28,6 +28,12 @@ export class Vaihtoehdot extends React.Component {
         // console.log(kayttaja, 'TÄHÄN USERNAME')
     }
 
+    vahvista = (e) => {
+        e.preventDefault();
+        console.log('eka')
+        this.props.haefunktio();
+    }
+
     paivitaData = (e) => {
         e.preventDefault();
         var kayttajaDude = this.props.kayttaja.username;
@@ -409,7 +415,7 @@ export class Vaihtoehdot extends React.Component {
 
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
 
-                        <button className="btn btn-primary" type="submit" value="Confirm" >Confirm</button>
+                        <button className="btn btn-primary" type="submit" value="Confirm" onClick={this.vahvista}>Confirm</button>
                     </form>
                     <br/>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top">
