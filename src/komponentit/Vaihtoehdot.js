@@ -6,7 +6,7 @@ import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
 import Listaus from './Listaus'
 import {kirjauduSisaan, lahetaPaivitettavaData} from "./rekisteroityminen";
-import {lahdetaulukko, taulukkoon} from "./funktiot";
+import {lahdetaulukko, kirjautuneentaulukko, taulukkoon} from "./funktiot";
 
 export class Vaihtoehdot extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export class Vaihtoehdot extends React.Component {
         this.state = {
             username: "",
             // username: "testitunnus",
-            data: '[ulalaa]'
+            data: ""
         }
         // console.log(kayttaja, 'TÄHÄN USERNAME')
     }
@@ -26,12 +26,19 @@ export class Vaihtoehdot extends React.Component {
 
         let tmpdata = this.state;
         tmpdata.username = kayttajaDude;
+        tmpdata.data = JSON.stringify(lahdetaulukko);
         // console.log('TÄÄÄ STATE', this.state.username)
-        lahetaPaivitettavaData(tmpdata, function (lista) {
-            // this.props.logindone();
-            // this.props.history.push("/");
+        lahetaPaivitettavaData(tmpdata, function (lista, ookoo) {
+            lahdetaulukko.splice(0,lahdetaulukko.length)
+            console.log('OOOOKOOOOO', ookoo)
+            this.props.appi().then(function() {
+                if (!ookoo) {
+                    this.props.history.push("/home");
+                }
+            }.bind(this));
         }.bind(this));
         // this.setState({usernameOrEmail: "", password: ""});
+
     }
 
 
@@ -80,15 +87,11 @@ export class Vaihtoehdot extends React.Component {
             return (
                 <div className="vaihtoehtoreuna">
 
-                    <b>HS</b>: <input type="checkbox" checked={this.state} onChange={this.props.HS}/>
-                    <b>IS</b>: <input type="checkbox" checked={this.state} onChange={this.props.IS}/>
-                    <b>BBC</b>: <input type="checkbox" checked={this.state} onChange={this.props.BBC}/>
-                    <br/>
-                    <br/>
-                    <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
-                    <br/>
-                    <br/>
+                    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 
+
+                    <br/>
+                    <br/>
                     <table className="logo-rivi">
                         <tr>
                             <td>
@@ -97,7 +100,7 @@ export class Vaihtoehdot extends React.Component {
                                     <button><img src={CNNlogo600} width="40vw" height="40vh"/></button>
 
 
-                                    <select ref="CNN" className="mdb-select">
+                                    <select className="mdb-select" ref="CNN">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="CNN-latest">Latest</option>
                                         <option value="CNN-top stories">Top Stories</option>
@@ -107,7 +110,13 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="CNN-sports">Sports</option>
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.CNNnappi}>Add to list</button>
+
+
+                                    <button className="btn-save btn btn-primary btn-sm"
+                                            onClick={this.CNNnappi}>Add to list
+                                    </button>
+
+
                                 </div>
                             </td>
 
@@ -116,7 +125,7 @@ export class Vaihtoehdot extends React.Component {
                                 <div className="drop-menu">
                                     <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
 
-                                    <select ref="BBC" className="mdb-select">
+                                    <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="BBC-world">World</option>
                                         <option value="BBC-business">Business</option>
@@ -134,7 +143,7 @@ export class Vaihtoehdot extends React.Component {
                                 <div className="drop-menu">
                                     <button><img src={HSlogo} width="40vw" height="40vh"/></button>
 
-                                    <select ref="HS" className="mdb-select">
+                                    <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="HS-tuoreimmat">Latest</option>
                                         <option value="HS-kotimaa">Homeland</option>
@@ -144,7 +153,6 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="HS-urheilu">Sports</option>
 
                                     </select>
-
                                     <br/>
                                     <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list</button>
                                 </div>
@@ -152,9 +160,10 @@ export class Vaihtoehdot extends React.Component {
 
                             <td>
                                 {/*IS*/}
-                                <div ref="IS" className="drop-menu">
+                                <div className="drop-menu">
                                     <button><img src={ISlogo} width="40vw" height="40vh"/></button>
-                                    <select className="mdb-select">
+
+                                    <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="IS-tuoreimmat">Latest</option>
                                         <option value="IS-kotimaa">Homeland</option>
@@ -174,16 +183,17 @@ export class Vaihtoehdot extends React.Component {
                     </table>
                     <br/>
                     <br/>
-                    <br/>
                     <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
                     <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
                     </button>
+                    <br/>
+                    <br/>
                     <form>
-                        <textarea className="feediLista"></textarea>
+                        <textarea className="feediLista">{lahdetaulukko}</textarea>
                         <br/>
-                        <input type="submit" value="Cancel"/>
-                        <input type="submit" value="Clear"/>
+
+                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
                         <input type="submit" value="UPDATE" onClick={this.paivitaData}/>
                     </form>
 
@@ -310,7 +320,7 @@ export class Vaihtoehdot extends React.Component {
                     <form>
                         <textarea className="feediLista">{lahdetaulukko}</textarea>
                         <br/>
-                        <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
+
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
                         <button className="btn btn-primary" type="submit" value="Confirm">Confirm</button>
                     </form>
