@@ -121,14 +121,9 @@ export class Register extends React.Component {
 
     toggleCNN = () => {
         taulukkoon("CNN-latest");
-        console.log("CNN-testi SAATANA");
+
 
     }
-
-
-
-
-
 
 
 

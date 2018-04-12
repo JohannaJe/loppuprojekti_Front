@@ -8,12 +8,12 @@ export class Listaus extends React.Component {
 
     haeListaJaPaivita = () => {
             var data = this.props.kayttaja.data;
-            console.log('KÄYTDAT', data)
+            console.log(data)
             kirjautuneenTaulukkoon(data)
-        console.log('lähdetaulukko', lahdetaulukko)
+        console.log(lahdetaulukko)
         haeLista(function (lista) {
             this.setState({kirjautuneenLista: lista, msg: null});
-            console.log(this.state.kirjautuneenLista, 'Näkyy haettu lista');
+            console.log(this.state.kirjautuneenLista);
         }.bind(this), kirjautuneentaulukko);
 
         kirjautuneentaulukko.splice(0,kirjautuneentaulukko.length)
@@ -33,17 +33,16 @@ export class Listaus extends React.Component {
     }
 
     render() {
-        console.log(this.props.lista, 'LISTA')
-        console.log(this.props.isAuthenticated, 'Kirjautunu');
-        console.log(this.state.testiLista, 'NÄKYY RENDERISSÄ');
+        console.log(this.props.lista)
+        console.log(this.props.isAuthenticated);
+        console.log(this.state.testiLista);
         var lista;
         if (this.props.isAuthenticated) {
 
             lista = this.state.kirjautuneenLista
-            console.log('INES')
+
 
         } else {
-            console.log('OUTES')
             lista = this.props.lista
         }
 

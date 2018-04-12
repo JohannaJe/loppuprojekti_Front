@@ -21,7 +21,7 @@ export function rekisteroityminen(User, callback) {
             else if (response.status===400) {
                 console.log('uuuuu', response.error)
                 response.json().then((data) => {
-                    console.log(data.message, 'VASTAUS BODY');
+                    console.log(data.message);
                     callback(null, data.message)
 
                     notification.success({

@@ -10,7 +10,7 @@ export class MyPage extends React.Component {
     render(){
         return(
             <div className="omasivu">
-                    <p><b>Hello! You can update your bubble here!</b></p>
+                    <p><b>You can update your bubble here!</b></p>
               <br/>
                 <Vaihtoehdot isAuthenticated={this.props.isAuthenticated} kayttaja={this.props.kayttaja}/>
             </div>

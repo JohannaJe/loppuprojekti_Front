@@ -40,7 +40,7 @@ export class Etusivu extends Component {
 
     toggleCNN = () => {
             taulukkoon("CNN-latest");
-            console.log("CNN-testi SAATANA");
+
 
     }
 
@@ -64,7 +64,7 @@ export class Etusivu extends Component {
     render() {
 
         var kirjautunut = this.props.isAuthenticated
-        console.log(kirjautunut, 'Kirjautumistieto siirtynyt Etusivulle')
+        console.log(kirjautunut)
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">
