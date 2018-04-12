@@ -62,6 +62,23 @@ export class Vaihtoehdot extends React.Component {
         document.documentElement.scrollTop = 0;
     };
 
+    ISlogo = () => {
+        taulukkoon("IS-tuoreimmat IS-kotimaa IS-ulkomaat IS-taloussanomat IS-viihde IS-musiikki IS-urheilu ");
+    }
+
+    HSlogo = () => {
+        taulukkoon("HS-tuoreimmat HS-kotimaa HS-ulkomaat HS-talous HS-politiikka HS-urheilu ");
+    }
+
+    BBClogo = () => {
+        taulukkoon("BBC-world BBC-business BBC-politics BBC-health ");
+    }
+
+    CNNlogo = () => {
+        taulukkoon("CNN-latest CNN-topstories CNN-world CNN-science&space CNN-entertainment CNN-sports ");
+    }
+
+
     ISnappi = () => {
 
         taulukkoon(this.refs.IS.value);
@@ -243,7 +260,7 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*CNN*/}
                                 <div className="drop-menu">
-                                    <button><img src={CNNlogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.CNNlogo}><img src={CNNlogo600} width="40vw" height="40vh"/></button>
 
 
                                     <select className="mdb-select" ref="CNN" >
@@ -269,7 +286,7 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*BBC*/}
                                 <div className="drop-menu">
-                                    <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.BBClogo}><img src={BBClogo600} width="40vw" height="40vh"/></button>
 
                                     <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -287,7 +304,7 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*HS*/}
                                 <div className="drop-menu">
-                                    <button><img src={HSlogo} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.HSlogo}><img src={HSlogo} width="40vw" height="40vh"/></button>
 
                                     <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -307,7 +324,7 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*IS*/}
                                 <div className="drop-menu">
-                                    <button><img src={ISlogo} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.ISlogo}><img src={ISlogo} width="40vw" height="40vh" /></button>
 
                                     <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
