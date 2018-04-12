@@ -97,7 +97,7 @@ export class Vaihtoehdot extends React.Component {
                                     <button><img src={CNNlogo600} width="40vw" height="40vh"/></button>
 
 
-                                    <select className="mdb-select">
+                                    <select ref="CNN" className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="CNN-latest">Latest</option>
                                         <option value="CNN-top stories">Top Stories</option>
@@ -107,7 +107,7 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="CNN-sports">Sports</option>
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.CNNnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -116,7 +116,7 @@ export class Vaihtoehdot extends React.Component {
                                 <div className="drop-menu">
                                     <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
 
-                                    <select className="mdb-select">
+                                    <select ref="BBC" className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="BBC-world">World</option>
                                         <option value="BBC-business">Business</option>
@@ -125,7 +125,7 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -133,7 +133,8 @@ export class Vaihtoehdot extends React.Component {
                                 {/*HS*/}
                                 <div className="drop-menu">
                                     <button><img src={HSlogo} width="40vw" height="40vh"/></button>
-                                    <select className="mdb-select">
+
+                                    <select ref="HS" className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="HS-tuoreimmat">Latest</option>
                                         <option value="HS-kotimaa">Homeland</option>
@@ -145,13 +146,13 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list</button>
                                 </div>
                             </td>
 
                             <td>
                                 {/*IS*/}
-                                <div className="drop-menu">
+                                <div ref="IS" className="drop-menu">
                                     <button><img src={ISlogo} width="40vw" height="40vh"/></button>
                                     <select className="mdb-select">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -165,7 +166,7 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -230,7 +231,7 @@ export class Vaihtoehdot extends React.Component {
 
 
                                     <button className="btn-save btn btn-primary btn-sm"
-                                            onClick={this.CNNnappi}>CNN-nappi
+                                            onClick={this.CNNnappi}>Add to list
                                     </button>
 
 
@@ -242,16 +243,16 @@ export class Vaihtoehdot extends React.Component {
                                 <div className="drop-menu">
                                     <button><img src={BBClogo600} width="40vw" height="40vh"/></button>
 
-                                    <select className="mdb-select">
+                                    <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="1">World</option>
-                                        <option value="2">Business</option>
-                                        <option value="3">Politics</option>
-                                        <option value="4">Health</option>
+                                        <option value="BBC-world">World</option>
+                                        <option value="BBC-business">Business</option>
+                                        <option value="BBC-politics">Politics</option>
+                                        <option value="BBC-health">Health</option>
                                     </select>
 
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -259,18 +260,19 @@ export class Vaihtoehdot extends React.Component {
                                 {/*HS*/}
                                 <div className="drop-menu">
                                     <button><img src={HSlogo} width="40vw" height="40vh"/></button>
-                                    <select className="mdb-select">
+
+                                    <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="1">Latest</option>
-                                        <option value="2">Homeland</option>
-                                        <option value="3">World</option>
-                                        <option value="4">Economy</option>
-                                        <option value="5">Politics</option>
-                                        <option value="6">Sports</option>
+                                        <option value="HS-tuoreimmat">Latest</option>
+                                        <option value="HS-kotimaa">Homeland</option>
+                                        <option value="HS-ulkomaat">World</option>
+                                        <option value="HS-talous">Economy</option>
+                                        <option value="HS-politiikka">Politics</option>
+                                        <option value="HS-urheilu">Sports</option>
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -278,19 +280,20 @@ export class Vaihtoehdot extends React.Component {
                                 {/*IS*/}
                                 <div className="drop-menu">
                                     <button><img src={ISlogo} width="40vw" height="40vh"/></button>
-                                    <select className="mdb-select">
+
+                                    <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="1">Latest</option>
-                                        <option value="2">Homeland</option>
-                                        <option value="3">World</option>
-                                        <option value="4">Economy</option>
-                                        <option value="5">Entertainment</option>
-                                        <option value="6">Music</option>
-                                        <option value="7">Sports</option>
+                                        <option value="IS-tuoreimmat">Latest</option>
+                                        <option value="IS-kotimaa">Homeland</option>
+                                        <option value="IS-ulkomaat">World</option>
+                                        <option value="IS-taloussanomat">Economy</option>
+                                        <option value="IS-viihde">Entertainment</option>
+                                        <option value="IS-musiikki">Music</option>
+                                        <option value="IS-urheilu">Sports</option>
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to list</button>
                                 </div>
                             </td>
 
@@ -305,7 +308,7 @@ export class Vaihtoehdot extends React.Component {
                     <br/>
                     <br/>
                     <form>
-                        <textarea className="feediLista"></textarea>
+                        <textarea className="feediLista">{lahdetaulukko}</textarea>
                         <br/>
                         <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
