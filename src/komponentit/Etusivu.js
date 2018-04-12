@@ -17,11 +17,10 @@ export class Etusivu extends Component {
             var data = this.props.kayttaja.data;
             taulukkoon(data)
         }
-        console.log('lähdetaulukko', lahdetaulukko)
 
         haeLista(function (lista) {
             this.setState({testiLista: lista, msg: null});
-            console.log(this.state.testiLista);
+
         }.bind(this), lahdetaulukko);
 
         lahdetaulukko.splice(0,lahdetaulukko.length)
@@ -64,7 +63,6 @@ export class Etusivu extends Component {
     render() {
 
         var kirjautunut = this.props.isAuthenticated
-        console.log(kirjautunut)
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">

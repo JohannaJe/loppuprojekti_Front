@@ -8,7 +8,6 @@ export class Listaus extends React.Component {
 
     haeListaJaPaivita = () => {
             var data = this.props.kayttaja.data;
-            console.log(data)
             kirjautuneenTaulukkoon(data)
         console.log(lahdetaulukko)
         haeLista(function (lista) {
@@ -33,9 +32,7 @@ export class Listaus extends React.Component {
     }
 
     render() {
-        console.log(this.props.lista)
-        console.log(this.props.isAuthenticated);
-        console.log(this.state.testiLista);
+
         var lista;
         if (this.props.isAuthenticated) {
 
