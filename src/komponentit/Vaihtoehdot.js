@@ -7,8 +7,12 @@ import ISlogo from '../ISlogo.png'
 import Listaus from './Listaus'
 import {kirjauduSisaan, lahetaPaivitettavaData} from "./rekisteroityminen";
 import {lahdetaulukko, taulukkoon} from "./funktiot";
+import './Feedilista'
+import {Feedilista} from "./Feedilista";
 
 export class Vaihtoehdot extends React.Component {
+    state= {URL:''};
+
     constructor(props) {
         super(props);
 
@@ -58,6 +62,7 @@ export class Vaihtoehdot extends React.Component {
 
         taulukkoon(this.refs.HS.value);
 
+
     }
     BBCnappi = () => {
 
@@ -67,6 +72,16 @@ export class Vaihtoehdot extends React.Component {
     CNNnappi = () => {
 
         taulukkoon(this.refs.CNN.value);
+
+    }
+    URLnappi = () => {
+        taulukkoon(this.refs.URL.value + " ");
+        this.refs.URL.value='';
+    }
+
+    clearLista = (e) => {
+        e.preventDefault();
+
 
     }
 
@@ -218,20 +233,20 @@ export class Vaihtoehdot extends React.Component {
                                     <button><img src={CNNlogo600} width="40vw" height="40vh"/></button>
 
 
-                                    <select className="mdb-select" ref="CNN">
+                                    <select className="mdb-select" ref="CNN" >
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="CNN-latest">Latest</option>
-                                        <option value="CNN-top stories">Top Stories</option>
-                                        <option value="CNN-world">World</option>
-                                        <option value="CNN-science & space">Science & Space</option>
-                                        <option value="CNN-entertainment">Entertainment</option>
-                                        <option value="CNN-sports">Sports</option>
+                                        <option value="CNN-latest ">Latest</option>
+                                        <option value="CNN-topstories ">Top Stories</option>
+                                        <option value="CNN-world ">World</option>
+                                        <option value="CNN-science&space ">Science & Space</option>
+                                        <option value="CNN-entertainment ">Entertainment</option>
+                                        <option value="CNN-sports ">Sports</option>
                                     </select>
                                     <br/>
 
 
-                                    <button className="btn-save btn btn-primary btn-sm"
-                                            onClick={this.CNNnappi}>Add to list
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.CNNnappi}>
+                                        Add to list
                                     </button>
 
 
@@ -245,10 +260,10 @@ export class Vaihtoehdot extends React.Component {
 
                                     <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="BBC-world">World</option>
-                                        <option value="BBC-business">Business</option>
-                                        <option value="BBC-politics">Politics</option>
-                                        <option value="BBC-health">Health</option>
+                                        <option value="BBC-world ">World</option>
+                                        <option value="BBC-business ">Business</option>
+                                        <option value="BBC-politics ">Politics</option>
+                                        <option value="BBC-health ">Health</option>
                                     </select>
 
                                     <br/>
@@ -263,12 +278,12 @@ export class Vaihtoehdot extends React.Component {
 
                                     <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="HS-tuoreimmat">Latest</option>
-                                        <option value="HS-kotimaa">Homeland</option>
-                                        <option value="HS-ulkomaat">World</option>
-                                        <option value="HS-talous">Economy</option>
-                                        <option value="HS-politiikka">Politics</option>
-                                        <option value="HS-urheilu">Sports</option>
+                                        <option value="HS-tuoreimmat ">Latest</option>
+                                        <option value="HS-kotimaa ">Homeland</option>
+                                        <option value="HS-ulkomaat ">World</option>
+                                        <option value="HS-talous ">Economy</option>
+                                        <option value="HS-politiikka ">Politics</option>
+                                        <option value="HS-urheilu ">Sports</option>
 
                                     </select>
                                     <br/>
@@ -283,13 +298,13 @@ export class Vaihtoehdot extends React.Component {
 
                                     <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="IS-tuoreimmat">Latest</option>
-                                        <option value="IS-kotimaa">Homeland</option>
-                                        <option value="IS-ulkomaat">World</option>
-                                        <option value="IS-taloussanomat">Economy</option>
-                                        <option value="IS-viihde">Entertainment</option>
-                                        <option value="IS-musiikki">Music</option>
-                                        <option value="IS-urheilu">Sports</option>
+                                        <option value="IS-tuoreimmat ">Latest</option>
+                                        <option value="IS-kotimaa ">Homeland</option>
+                                        <option value="IS-ulkomaat ">World</option>
+                                        <option value="IS-taloussanomat ">Economy</option>
+                                        <option value="IS-viihde ">Entertainment</option>
+                                        <option value="IS-musiikki ">Music</option>
+                                        <option value="IS-urheilu ">Sports</option>
 
                                     </select>
                                     <br/>
@@ -301,17 +316,18 @@ export class Vaihtoehdot extends React.Component {
                     </table>
                     <br/>
                     <br/>
-                    <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
-                    <button className="btn btn-primary" onClick={this.props.haefunktio}>Search</button>
+                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL} placeholder="Insert your URL here!"></input>
+                    <button className="btn btn-primary"  onClick={this.URLnappi}>Add to list</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
                     </button>
                     <br/>
                     <br/>
+                    {/*value={this.state.urlOsoite}*/}
                     <form>
-                        <textarea className="feediLista">{lahdetaulukko}</textarea>
+                        <Feedilista/>
                         <br/>
-                        <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
-                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+
+                        <button className="btn btn-info" type="button" value="Clear" onClick={this.clearLista}>Clear</button>
                         <button className="btn btn-primary" type="submit" value="Confirm">Confirm</button>
                     </form>
                     <br/>
@@ -328,6 +344,7 @@ export class Vaihtoehdot extends React.Component {
             );
         }
     }
+
 
 
 }
