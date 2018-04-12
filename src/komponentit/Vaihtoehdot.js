@@ -340,11 +340,8 @@ export class Vaihtoehdot extends React.Component {
                         <Feedilista/>
                         <br/>
 
-<<<<<<< HEAD
-                        <button className="btn btn-info" type="button" value="Clear" onClick={this.clearLista}>Clear</button>
-=======
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
->>>>>>> b3b617e1ad64bf72e5e53436e7dcc74544d41815
+
                         <button className="btn btn-primary" type="submit" value="Confirm">Confirm</button>
                     </form>
                     <br/>
