@@ -108,27 +108,22 @@ export function lahetaPaivitettavaData(User, callback) {
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify(User)
     })
-        .then(response =>
-            response.json()
-                .then(json => {
-                    if(!response.ok) {
-                        console.log('VÄÄRÄ TUNNUS TAI SALIS')
-
-                        notification.success({
-                            message: 'Wrong username or password.',
-                            description: "Please try again.",
-                        });
+        .then(response => {
+                    if (response.ok) {
+                            console.log('JESSS')
+                            callback();
 
 
                     } else {
-                        console.log(json)
-                        console.log(json.accessToken)
-                        localStorage.setItem('accessToken', json.accessToken);
-                        callback(json);
+                        console.log('BUUUUU')
+                        // console.log(json)
+                        // console.log(json.accessToken)
+                        // localStorage.setItem('accessToken', json.accessToken);
+                        // callback(json);
                     }
 
 
-                }));
+                });
 
 }
 
