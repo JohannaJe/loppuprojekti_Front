@@ -12,9 +12,8 @@ export class Login extends React.Component {
     }
 
 
-//state sisältää username ja password
     kirjaudu = () => {
-        kirjauduSisaan(this.state, function(lista) {
+        kirjauduSisaan(this.state, function (lista) {
             this.props.logindone();
             this.props.history.push("/");
         }.bind(this));
@@ -22,27 +21,27 @@ export class Login extends React.Component {
     }
 
 
-    giveUsernameOrEmail(event){
+    giveUsernameOrEmail(event) {
         this.setState({
             usernameOrEmail: event.target.value
         });
     }
 
 
-    givePassword(event){
+    givePassword(event) {
         this.setState({
             password: event.target.value
         });
     }
 
 
-
-
-    render(){
-        return(
-            <div className = "registerreuna">
-                <input type="text" value={this.state.usernameOrEmail} onChange={(event) => this.giveUsernameOrEmail(event)} placeholder="username or email"/>
-                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="password"/>
+    render() {
+        return (
+            <div className="registerreuna">
+                <input type="text" value={this.state.usernameOrEmail}
+                       onChange={(event) => this.giveUsernameOrEmail(event)} placeholder="username or email"/>
+                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)}
+                       placeholder="password"/>
                 <button onClick={this.kirjaudu} className="btn btn-info" type="submit">
                     Login
                 </button>

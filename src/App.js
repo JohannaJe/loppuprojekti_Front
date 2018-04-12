@@ -8,7 +8,7 @@ import {Register} from "./komponentit/Register";
 import {Logout} from "./komponentit/Logout";
 import {MyPage} from "./komponentit/MyPage";
 import {getCurrentUser} from "./komponentit/rekisteroityminen";
-import {notification} from 'antd';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -20,12 +20,9 @@ class App extends Component {
         this.handleLogout = this.handleLogout.bind(this);
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
-        notification.config({
-            placement: 'topRight',
-            top: 70,
-            duration: 3,
-        });
+
     }
+
     loadCurrentUser() {
         this.setState({
             isLoading: true
@@ -38,71 +35,71 @@ class App extends Component {
                     isLoading: false
                 });
             }).catch(error => {
-            this.setState({
-                isLoading: false
+                this.setState({
+                    isLoading: false
+                });
             });
-        });
     }
+
     componentWillMount() {
         this.loadCurrentUser();
     }
-    // Handle Logout, Set currentUser and isAuthenticated state which will be passed to other components
-    handleLogout(redirectTo = "/", notificationType = "success", description = "You're successfully logged out.") {
-        // localStorage.removeItem('accessToken');
+
+    // Kirjaudutaan ulos, nollataan autentikointi ja käyttäjätiedot
+    handleLogout(redirectTo = "/") {
         this.setState({
             currentUser: null,
             isAuthenticated: false
         });
-        // this.props.history.push(redirectTo);
-        notification[notificationType]({
-            message: 'Polling App',
-            description: description,
-        });
+
     }
-    /*
-     This method is called by the Login component after successful login
-     so that we can load the logged-in user details and set the currentUser &
-     isAuthenticated state, which other components will use to render their JSX
-    */
+
+    // Kirjaudutaan sisään. Haetaan nykyisen käyttäjän tiedot ja autentikointi.
     handleLogin() {
-        notification.success({
-            message: 'Polling App',
-            description: "You're successfully logged in.",
-        });
+
         this.loadCurrentUser();
-        //this.props.history.push("/");
     }
+
     render() {
 
 
-            return (
-                <Router>
-                    <div className="App">
+        return (
+            <Router>
+                <div className="App">
 
-                        <NaviBar kayttaja={this.state.isAuthenticated} kayttajanimi={this.state.currentUser}/>
-                        <Switch>
-                            <Route exact={true} path='/' render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
-                                                                                                         isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                    <NaviBar kayttaja={this.state.isAuthenticated} kayttajanimi={this.state.currentUser}/>
+                    <Switch>
+                        <Route exact={true} path='/'
+                               render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin}
+                                                           kayttaja={this.state.currentUser}
+                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
 
 
-                            <Route path="/home" render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
-                                                                          isAuthenticated={this.state.isAuthenticated} {...props}/>}/>>
-                            <Route path="/login" render={(props) => <Login history={this.props.history} logindone={this.handleLogin} kayttaja={this.state.currentUser}
-                                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
-                            <Route path="/mypage"
-                                   render={(props) => <MyPage appi={this.loadCurrentUser} history={this.props.history} logindone={this.handleLogout}
-                                                              kayttaja={this.state.currentUser}
-                                                              isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                        <Route path="/home"
+                               render={(props) => <Etusivu history={this.props.history} logindone={this.handleLogin}
+                                                           kayttaja={this.state.currentUser}
+                                                           isAuthenticated={this.state.isAuthenticated} {...props}/>}/>>
+                        <Route path="/login"
+                               render={(props) => <Login history={this.props.history} logindone={this.handleLogin}
+                                                         kayttaja={this.state.currentUser}
+                                                         isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                        <Route path="/mypage"
+                               render={(props) => <MyPage appi={this.loadCurrentUser} history={this.props.history}
+                                                          logindone={this.handleLogout}
+                                                          kayttaja={this.state.currentUser}
+                                                          isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
 
-                            <Route path="/register" component={Register}/>
-                            <Route path="/logout" render={(props) => <Logout history={this.props.history} logindone={this.handleLogout} kayttaja={this.state.currentUser}
-                                                                             isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
-                        </Switch></div>
-                </Router>
-            );
-
+                        <Route path="/register" component={Register}/>
+                        <Route path="/logout"
+                               render={(props) => <Logout history={this.props.history} logindone={this.handleLogout}
+                                                          kayttaja={this.state.currentUser}
+                                                          isAuthenticated={this.state.isAuthenticated} {...props}/>}/>
+                    </Switch></div>
+            </Router>
+        );
 
 
     }
 }
+
 export default App;

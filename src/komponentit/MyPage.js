@@ -1,18 +1,17 @@
 import React from 'react';
 import {Vaihtoehdot} from "./Vaihtoehdot";
-import {haeLista, lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
-import {muokkaus, rekisteroityminen} from "./rekisteroityminen";
+import {muokkaus,} from "./rekisteroityminen";
 
 export class MyPage extends React.Component {
 
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div className="omasivu">
-                    <p><b>You can update your bubble here!</b></p>
-              <br/>
-<Vaihtoehdot appi={this.props.appi} isAuthenticated={this.props.isAuthenticated} kayttaja={this.props.kayttaja} history={this.props.history}/>
+                <p><b>You can update your bubble here!</b></p>
+                <br/>
+                <Vaihtoehdot appi={this.props.appi} isAuthenticated={this.props.isAuthenticated}
+                             kayttaja={this.props.kayttaja} history={this.props.history}/>
 
             </div>
         );
