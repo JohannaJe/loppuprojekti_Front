@@ -158,10 +158,9 @@ export class Vaihtoehdot extends React.Component {
             return (
                 <div className="vaihtoehtoreuna">
 
-
-
-
                     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+
+
 
 
                     <br/>
@@ -186,7 +185,7 @@ export class Vaihtoehdot extends React.Component {
                                     <br/>
 
 
-                                    <button class="btn-save btn btn-primary btn-sm" onClick={this.props.CNN}>CNN-nappi</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.props.CNN}>CNN-nappi</button>
 
 
                                 </div>
