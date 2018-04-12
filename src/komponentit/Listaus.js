@@ -9,10 +9,8 @@ export class Listaus extends React.Component {
     haeListaJaPaivita = () => {
             var data = this.props.kayttaja.data;
             kirjautuneenTaulukkoon(data)
-        console.log(lahdetaulukko)
         haeLista(function (lista) {
             this.setState({kirjautuneenLista: lista, msg: null});
-            console.log(this.state.kirjautuneenLista);
         }.bind(this), kirjautuneentaulukko);
 
         kirjautuneentaulukko.splice(0,kirjautuneentaulukko.length)
@@ -47,7 +45,7 @@ export class Listaus extends React.Component {
             return (
                 <div className="listausreuna" key={index}>
                     <div>
-                        <p class="aikaleima">{x.aikaleimaString}</p>
+                        <p className="aikaleima">{x.aikaleimaString}</p>
                         <p><a href={x.linkki}><img className="img-responsive img-thumbnail center-block" alt="" src={x.kuva}
                                                    width="30%" height="20%"/></a></p>
                         <p id="otsikkolinkki"><a class="linkki" target="_blank" href={x.linkki}>{x.otsikko}</a></p>

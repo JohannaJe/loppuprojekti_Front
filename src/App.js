@@ -27,13 +27,11 @@ class App extends Component {
         });
     }
     loadCurrentUser() {
-        console.log("KÄYDÄÄN TÄÄL")
         this.setState({
             isLoading: true
         });
         return getCurrentUser()
             .then(response => {
-                console.log('Nykyisen käyttäjän tiedot', response)
                 this.setState({
                     currentUser: response,
                     isAuthenticated: true,
@@ -75,7 +73,6 @@ class App extends Component {
         //this.props.history.push("/");
     }
     render() {
-        console.log('Onko autentikoitu? = ', this.state.isAuthenticated)
 
 
             return (
