@@ -47,17 +47,17 @@ export function rekisteroityminen(User, callback) {
 }
 
 
-export function muokkaus(User, callback) {
-    console.log(JSON.stringify(User));
-    return fetch(palveluurl, {
-        method: 'UPDATE',
-        headers: {'Content-Type': 'application/json' },
-        body: JSON.stringify(User)
-    })
-        .then((function(response) {
-            callback();
-        }));
-}
+// export function muokkaus(User, callback) {
+//     console.log(JSON.stringify(User), 'TÄÄ LÄHTEE BÄKKII');
+//     return fetch(palveluurl, {
+//         method: 'UPDATE',
+//         headers: {'Content-Type': 'application/json' },
+//         body: JSON.stringify(User)
+//     })
+//         .then((function(response) {
+//             callback();
+//         }));
+// }
 
 
 
@@ -100,6 +100,38 @@ export function kirjauduSisaan(User, callback) {
         //     callback();
         // }));
 }
+const updateurl = '/api/auth/updateData';
+export function lahetaPaivitettavaData(User, callback) {
+    console.log(JSON.stringify(User), 'LÄHTEE BÄKKII');
+    return fetch(updateurl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify(User)
+    })
+        .then(response =>
+            response.json()
+                .then(json => {
+                    if(!response.ok) {
+                        console.log('VÄÄRÄ TUNNUS TAI SALIS')
+
+                        notification.success({
+                            message: 'Wrong username or password.',
+                            description: "Please try again.",
+                        });
+
+
+                    } else {
+                        console.log(json)
+                        console.log(json.accessToken)
+                        localStorage.setItem('accessToken', json.accessToken);
+                        callback(json);
+                    }
+
+
+                }));
+
+}
+
 
 export function getCurrentUser() {
     if(!localStorage.getItem('accessToken')) {

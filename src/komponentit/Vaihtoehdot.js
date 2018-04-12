@@ -5,8 +5,34 @@ import BBClogo600 from '../BBClogo600.jpg'
 import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
 import Listaus from './Listaus'
+import {kirjauduSisaan, lahetaPaivitettavaData} from "./rekisteroityminen";
+import {lahdetaulukko} from "./funktiot";
 
 export class Vaihtoehdot extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            username: "",
+            // username: "testitunnus",
+            data: '[ulalaa]'
+        }
+        // console.log(kayttaja, 'TÄHÄN USERNAME')
+    }
+
+    paivitaData = (e) => {
+        e.preventDefault();
+        var kayttajaDude = this.props.kayttaja.username;
+
+        let tmpdata = this.state;
+        tmpdata.username = kayttajaDude;
+        // console.log('TÄÄÄ STATE', this.state.username)
+        lahetaPaivitettavaData(tmpdata, function(lista) {
+            // this.props.logindone();
+            // this.props.history.push("/");
+        }.bind(this));
+        // this.setState({usernameOrEmail: "", password: ""});
+    }
 
 
     scrollFunction = () => {
@@ -135,7 +161,7 @@ export class Vaihtoehdot extends React.Component {
                         <br/>
                         <input type="submit" value="Cancel"/>
                         <input type="submit" value="Clear"/>
-                        <input type="submit" value="Confirm"/>
+                        <input type="submit" value="UPDATE" onClick={this.paivitaData}/>
                     </form>
 
 
