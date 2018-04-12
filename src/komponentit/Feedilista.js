@@ -1,5 +1,5 @@
 import React from "react";
-import {kirjautuneentaulukko, lahdetaulukko, taulukkoon} from "./funktiot";
+import {kirjautuneentaulukko, lahdetaulukko} from "./funktiot";
 import './Feedilista.css'
 
 export class Feedilista extends React.Component {

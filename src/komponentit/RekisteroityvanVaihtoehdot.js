@@ -4,28 +4,21 @@ import CNNlogo600 from '../CNNlogo600.jpg'
 import BBClogo600 from '../BBClogo600.jpg'
 import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
-import Listaus from './Listaus'
-import {kirjauduSisaan, lahetaPaivitettavaData} from "./rekisteroityminen";
-
-
-import './Feedilista'
+import {lahetaPaivitettavaData} from "./rekisteroityminen";
 import {Feedilista} from "./Feedilista";
-
-import {lahdetaulukko, kirjautuneentaulukko,  kirjautuneenTaulukkoon,taulukkoon} from "./funktiot";
+import {kirjautuneentaulukko, taulukkoon} from "./funktiot";
 
 
 export class RekisteroityvanVaihtoehdot extends React.Component {
-    state= {URL:''};
+    state = {URL: ''};
 
     constructor(props) {
         super(props);
 
         this.state = {
             username: "",
-            // username: "testitunnus",
             data: ""
         }
-        // console.log(kayttaja, 'TÄHÄN USERNAME')
     }
 
     paivitaData = (e) => {
@@ -35,17 +28,14 @@ export class RekisteroityvanVaihtoehdot extends React.Component {
         let tmpdata = this.state;
         tmpdata.username = kayttajaDude;
         tmpdata.data = JSON.stringify(kirjautuneentaulukko);
-        // console.log('TÄÄÄ STATE', this.state.username)
         lahetaPaivitettavaData(tmpdata, function (lista, ookoo) {
-            kirjautuneentaulukko.splice(0,kirjautuneentaulukko.length)
-            console.log('OOOOKOOOOO', ookoo)
-            this.props.appi().then(function() {
+            kirjautuneentaulukko.splice(0, kirjautuneentaulukko.length)
+            this.props.appi().then(function () {
                 if (!ookoo) {
                     this.props.history.push("/home");
                 }
             }.bind(this));
         }.bind(this));
-        // this.setState({usernameOrEmail: "", password: ""});
 
     }
 
@@ -103,7 +93,7 @@ export class RekisteroityvanVaihtoehdot extends React.Component {
     }
     URLnappi = () => {
         taulukkoon(this.refs.URL.value + " ");
-        this.refs.URL.value='';
+        this.refs.URL.value = '';
         this.setState(this.state);
     }
 
@@ -117,137 +107,140 @@ export class RekisteroityvanVaihtoehdot extends React.Component {
     render() {
 
 
+        return (
+            <div className="vaihtoehtoreuna">
+
+                <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 
 
-            return (
-                <div className="vaihtoehtoreuna">
+                <br/>
+                <br/>
+                <table className="logo-rivi">
+                    <tr>
+                        <td>
+                            {/*CNN*/}
+                            <div className="drop-menu">
+                                <button onClick={this.CNNlogo}><img alt="" src={CNNlogo600} width="40vw" height="40vh"/>
+                                </button>
 
-                    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+
+                                <select className="mdb-select" ref="CNN">
+                                    <option value="" disabled selected>Pick your favorites</option>
+                                    <option value="CNN-latest ">Latest</option>
+                                    <option value="CNN-topstories ">Top Stories</option>
+                                    <option value="CNN-world ">World</option>
+                                    <option value="CNN-science&space ">Science & Space</option>
+                                    <option value="CNN-entertainment ">Entertainment</option>
+                                    <option value="CNN-sports ">Sports</option>
+                                </select>
+                                <br/>
 
 
+                                <button className="btn-save btn btn-primary btn-sm" onClick={this.CNNnappi}>
+                                    Add to list
+                                </button>
+
+
+                            </div>
+                        </td>
+
+                        <td>
+                            {/*BBC*/}
+                            <div className="drop-menu">
+                                <button onClick={this.BBClogo}><img alt="" src={BBClogo600} width="40vw" height="40vh"/>
+                                </button>
+
+                                <select className="mdb-select" ref="BBC">
+                                    <option value="" disabled selected>Pick your favorites</option>
+                                    <option value="BBC-world ">World</option>
+                                    <option value="BBC-business ">Business</option>
+                                    <option value="BBC-politics ">Politics</option>
+                                    <option value="BBC-health ">Health</option>
+                                </select>
+
+                                <br/>
+                                <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to
+                                    list
+                                </button>
+                            </div>
+                        </td>
+
+                        <td>
+                            {/*HS*/}
+                            <div className="drop-menu">
+                                <button onClick={this.HSlogo}><img alt="" src={HSlogo} width="40vw" height="40vh"/></button>
+
+                                <select className="mdb-select" ref="HS">
+                                    <option value="" disabled selected>Pick your favorites</option>
+                                    <option value="HS-tuoreimmat ">Latest</option>
+                                    <option value="HS-kotimaa ">Homeland</option>
+                                    <option value="HS-ulkomaat ">World</option>
+                                    <option value="HS-talous ">Economy</option>
+                                    <option value="HS-politiikka ">Politics</option>
+                                    <option value="HS-urheilu ">Sports</option>
+
+                                </select>
+                                <br/>
+                                <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list
+                                </button>
+                            </div>
+                        </td>
+
+                        <td>
+                            {/*IS*/}
+                            <div className="drop-menu">
+                                <button onClick={this.ISlogo}><img alt="" src={ISlogo} width="40vw" height="40vh"/></button>
+
+                                <select className="mdb-select" ref="IS">
+                                    <option value="" disabled selected>Pick your favorites</option>
+                                    <option value="IS-tuoreimmat ">Latest</option>
+                                    <option value="IS-kotimaa ">Homeland</option>
+                                    <option value="IS-ulkomaat ">World</option>
+                                    <option value="IS-taloussanomat ">Economy</option>
+                                    <option value="IS-viihde ">Entertainment</option>
+                                    <option value="IS-musiikki ">Music</option>
+                                    <option value="IS-urheilu ">Sports</option>
+
+                                </select>
+                                <br/>
+                                <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to list
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL}
+                                   placeholder="Insert your URL here!"></input>
+                <button className="btn btn-primary" onClick={this.URLnappi}>Add to list</button>
+                <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
+                </button>
+                <br/>
+                <br/>
+                {/*value={this.state.urlOsoite}*/}
+                <form>
+                    <Feedilista isAuthenticated={this.props.isAuthenticated}/>
                     <br/>
-                    <br/>
-                    <table className="logo-rivi">
-                        <tr>
-                            <td>
-                                {/*CNN*/}
-                                <div className="drop-menu">
-                                    <button onClick={this.CNNlogo}><img src={CNNlogo600} width="40vw" height="40vh"/></button>
+
+                    <button className="btn btn-info" type="submit" value="Clear">Clear</button>
 
 
-                                    <select className="mdb-select" ref="CNN" >
-                                        <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="CNN-latest ">Latest</option>
-                                        <option value="CNN-topstories ">Top Stories</option>
-                                        <option value="CNN-world ">World</option>
-                                        <option value="CNN-science&space ">Science & Space</option>
-                                        <option value="CNN-entertainment ">Entertainment</option>
-                                        <option value="CNN-sports ">Sports</option>
-                                    </select>
-                                    <br/>
+                </form>
+                <br/>
+                <button className="myBtn" onClick={this.topFunction} title="Go to top">
+                    <i className="icon-chevron-up"/>
+                </button>
 
 
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.CNNnappi}>
-                                        Add to list
-                                    </button>
+                <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 
 
-                                </div>
-                            </td>
+            </div>
 
-                            <td>
-                                {/*BBC*/}
-                                <div className="drop-menu">
-                                    <button onClick={this.BBClogo}><img src={BBClogo600} width="40vw" height="40vh"/></button>
-
-                                    <select className="mdb-select" ref="BBC">
-                                        <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="BBC-world ">World</option>
-                                        <option value="BBC-business ">Business</option>
-                                        <option value="BBC-politics ">Politics</option>
-                                        <option value="BBC-health ">Health</option>
-                                    </select>
-
-                                    <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to list</button>
-                                </div>
-                            </td>
-
-                            <td>
-                                {/*HS*/}
-                                <div className="drop-menu">
-                                    <button onClick={this.HSlogo}><img src={HSlogo} width="40vw" height="40vh"/></button>
-
-                                    <select className="mdb-select" ref="HS">
-                                        <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="HS-tuoreimmat ">Latest</option>
-                                        <option value="HS-kotimaa ">Homeland</option>
-                                        <option value="HS-ulkomaat ">World</option>
-                                        <option value="HS-talous ">Economy</option>
-                                        <option value="HS-politiikka ">Politics</option>
-                                        <option value="HS-urheilu ">Sports</option>
-
-                                    </select>
-                                    <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list</button>
-                                </div>
-                            </td>
-
-                            <td>
-                                {/*IS*/}
-                                <div className="drop-menu">
-                                    <button onClick={this.ISlogo}><img src={ISlogo} width="40vw" height="40vh" /></button>
-
-                                    <select className="mdb-select" ref="IS">
-                                        <option value="" disabled selected>Pick your favorites</option>
-                                        <option value="IS-tuoreimmat ">Latest</option>
-                                        <option value="IS-kotimaa ">Homeland</option>
-                                        <option value="IS-ulkomaat ">World</option>
-                                        <option value="IS-taloussanomat ">Economy</option>
-                                        <option value="IS-viihde ">Entertainment</option>
-                                        <option value="IS-musiikki ">Music</option>
-                                        <option value="IS-urheilu ">Sports</option>
-
-                                    </select>
-                                    <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to list</button>
-                                </div>
-                            </td>
-
-                        </tr>
-                    </table>
-                    <br/>
-                    <br/>
-                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL} placeholder="Insert your URL here!"></input>
-                    <button className="btn btn-primary"  onClick={this.URLnappi}>Add to list</button>
-                    <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
-                    </button>
-                    <br/>
-                    <br/>
-                    {/*value={this.state.urlOsoite}*/}
-                    <form>
-                        <Feedilista isAuthenticated={this.props.isAuthenticated}/>
-                        <br/>
-
-                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
-
-
-                    </form>
-                    <br/>
-                    <button className="myBtn" onClick={this.topFunction} title="Go to top">
-                        <i className="icon-chevron-up"/>
-                    </button>
-
-
-                    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
-
-
-                </div>
-
-            );
-        }
-
-
+        );
+    }
 
 
 }

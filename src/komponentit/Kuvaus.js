@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Kuvaus.css';
 
-export class Kuvaus extends React.Component {
+export class Kuvaus extends Component {
     render() {
         return (
             <div className="kuvaus">

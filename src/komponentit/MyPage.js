@@ -1,6 +1,5 @@
 import React from 'react';
 import {Vaihtoehdot} from "./Vaihtoehdot";
-import {muokkaus,} from "./rekisteroityminen";
 
 export class MyPage extends React.Component {
 

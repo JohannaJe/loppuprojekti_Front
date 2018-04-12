@@ -9,20 +9,16 @@ notification.config({
 });
 
 export function rekisteroityminen(User, callback) {
-    console.log(JSON.stringify(User));
     return fetch(palveluurl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(User)
     })
         .then((function (response) {
-            console.log('MIKä', response.status)
             if (response.status === 200 || response.status === 201)
                 callback();
             else if (response.status === 400) {
-                console.log('uuuuu', response.error)
                 response.json().then((data) => {
-                    console.log(data.message);
                     callback(null, data.message)
 
                     notification.success({
@@ -37,8 +33,7 @@ export function rekisteroityminen(User, callback) {
 
 
             else {
-                console.log(response, 'aaa')
-                console.log("TEE TÄHÄN JOTAIN PIAN, jos esim internal server error")
+                console.log("Kuolema! ;)")
             }
 
 

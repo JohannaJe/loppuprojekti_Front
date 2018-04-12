@@ -1,6 +1,6 @@
 import React from 'react';
 import './Listaus.css';
-import {haeLista, lahdetaulukko, kirjautuneentaulukko, kirjautuneenTaulukkoon} from "./funktiot";
+import {haeLista, kirjautuneentaulukko, kirjautuneenTaulukkoon} from "./funktiot";
 
 
 export class Listaus extends React.Component {

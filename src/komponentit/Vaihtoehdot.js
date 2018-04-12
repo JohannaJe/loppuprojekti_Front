@@ -4,33 +4,25 @@ import CNNlogo600 from '../CNNlogo600.jpg'
 import BBClogo600 from '../BBClogo600.jpg'
 import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
-import Listaus from './Listaus'
-import {kirjauduSisaan, lahetaPaivitettavaData, rekisteroityminen} from "./rekisteroityminen";
-
-
-import './Feedilista'
+import {lahetaPaivitettavaData} from "./rekisteroityminen";
 import {Feedilista} from "./Feedilista";
-
-import {lahdetaulukko, kirjautuneentaulukko,  kirjautuneenTaulukkoon,taulukkoon} from "./funktiot";
+import {kirjautuneentaulukko, kirjautuneenTaulukkoon, taulukkoon} from "./funktiot";
 
 
 export class Vaihtoehdot extends React.Component {
-    state= {URL:''};
+    state = {URL: ''};
 
     constructor(props) {
         super(props);
 
         this.state = {
             username: "",
-            // username: "testitunnus",
             data: ""
         }
-        // console.log(kayttaja, 'TÄHÄN USERNAME')
     }
 
     vahvista = (e) => {
         e.preventDefault();
-        console.log('eka')
         this.props.haefunktio();
     }
 
@@ -41,17 +33,14 @@ export class Vaihtoehdot extends React.Component {
         let tmpdata = this.state;
         tmpdata.username = kayttajaDude;
         tmpdata.data = JSON.stringify(kirjautuneentaulukko);
-        // console.log('TÄÄÄ STATE', this.state.username)
         lahetaPaivitettavaData(tmpdata, function (lista, ookoo) {
-            kirjautuneentaulukko.splice(0,kirjautuneentaulukko.length)
-            console.log('OOOOKOOOOO', ookoo)
-            this.props.appi().then(function() {
+            kirjautuneentaulukko.splice(0, kirjautuneentaulukko.length)
+            this.props.appi().then(function () {
                 if (!ookoo) {
                     this.props.history.push("/home");
                 }
             }.bind(this));
         }.bind(this));
-        // this.setState({usernameOrEmail: "", password: ""});
 
     }
 
@@ -109,7 +98,7 @@ export class Vaihtoehdot extends React.Component {
     }
     URLnappi = () => {
         taulukkoon(this.refs.URL.value + " ");
-        this.refs.URL.value='';
+        this.refs.URL.value = '';
         this.setState(this.state);
     }
     ISlogokirj = () => {
@@ -152,7 +141,7 @@ export class Vaihtoehdot extends React.Component {
     }
     URLnappikirj = () => {
         kirjautuneenTaulukkoon(this.refs.URL.value + " ");
-        this.refs.URL.value='';
+        this.refs.URL.value = '';
         this.setState(this.state);
     }
 
@@ -165,7 +154,6 @@ export class Vaihtoehdot extends React.Component {
 
     render() {
         var kirjautunut = this.props.isAuthenticated
-        console.log(kirjautunut, 'SAAATANA')
 
 
         if (kirjautunut) {
@@ -182,10 +170,11 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*CNN*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.CNNlogokirj}><img src={CNNlogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.CNNlogokirj}><img alt="" src={CNNlogo600} width="40vw"
+                                                                            height="40vh"/></button>
 
 
-                                    <select className="mdb-select" ref="CNN" >
+                                    <select className="mdb-select" ref="CNN">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="CNN-latest ">Latest</option>
                                         <option value="CNN-topstories ">Top Stories</option>
@@ -208,7 +197,8 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*BBC*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.BBClogokirj}><img src={BBClogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.BBClogokirj}><img alt="" src={BBClogo600} width="40vw"
+                                                                            height="40vh"/></button>
 
                                     <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -219,14 +209,17 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappikirj}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappikirj}>Add
+                                        to list
+                                    </button>
                                 </div>
                             </td>
 
                             <td>
                                 {/*HS*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.HSlogokirj}><img src={HSlogo} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.HSlogokirj}><img alt="" src={HSlogo} width="40vw" height="40vh"/>
+                                    </button>
 
                                     <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -239,14 +232,17 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappikirj}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappikirj}>Add
+                                        to list
+                                    </button>
                                 </div>
                             </td>
 
                             <td>
                                 {/*IS*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.ISlogokirj}><img src={ISlogo} width="40vw" height="40vh" /></button>
+                                    <button onClick={this.ISlogokirj}><img alt="" src={ISlogo} width="40vw" height="40vh"/>
+                                    </button>
 
                                     <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -260,7 +256,9 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappikirj}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappikirj}>Add
+                                        to list
+                                    </button>
                                 </div>
                             </td>
 
@@ -268,8 +266,9 @@ export class Vaihtoehdot extends React.Component {
                     </table>
                     <br/>
                     <br/>
-                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL} placeholder="Insert your URL here!"></input>
-                    <button className="btn btn-primary"  onClick={this.URLnappikirj}>Add to list</button>
+                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL}
+                                       placeholder="Insert your URL here!"></input>
+                    <button className="btn btn-primary" onClick={this.URLnappikirj}>Add to list</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
                     </button>
                     <br/>
@@ -316,10 +315,11 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*CNN*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.CNNlogo}><img src={CNNlogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.CNNlogo}><img alt="" src={CNNlogo600} width="40vw" height="40vh"/>
+                                    </button>
 
 
-                                    <select className="mdb-select" ref="CNN" >
+                                    <select className="mdb-select" ref="CNN">
                                         <option value="" disabled selected>Pick your favorites</option>
                                         <option value="CNN-latest ">Latest</option>
                                         <option value="CNN-topstories ">Top Stories</option>
@@ -342,7 +342,8 @@ export class Vaihtoehdot extends React.Component {
                             <td>
                                 {/*BBC*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.BBClogo}><img src={BBClogo600} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.BBClogo}><img alt="" src={BBClogo600} width="40vw" height="40vh"/>
+                                    </button>
 
                                     <select className="mdb-select" ref="BBC">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -353,14 +354,17 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.BBCnappi}>Add to
+                                        list
+                                    </button>
                                 </div>
                             </td>
 
                             <td>
                                 {/*HS*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.HSlogo}><img src={HSlogo} width="40vw" height="40vh"/></button>
+                                    <button onClick={this.HSlogo}><img alt="" src={HSlogo} width="40vw" height="40vh"/>
+                                    </button>
 
                                     <select className="mdb-select" ref="HS">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -373,14 +377,17 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.HSnappi}>Add to
+                                        list
+                                    </button>
                                 </div>
                             </td>
 
                             <td>
                                 {/*IS*/}
                                 <div className="drop-menu">
-                                    <button onClick={this.ISlogo}><img src={ISlogo} width="40vw" height="40vh" /></button>
+                                    <button onClick={this.ISlogo}><img alt="" src={ISlogo} width="40vw" height="40vh"/>
+                                    </button>
 
                                     <select className="mdb-select" ref="IS">
                                         <option value="" disabled selected>Pick your favorites</option>
@@ -394,7 +401,9 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm" onClick={this.ISnappi}>Add to
+                                        list
+                                    </button>
                                 </div>
                             </td>
 
@@ -402,8 +411,9 @@ export class Vaihtoehdot extends React.Component {
                     </table>
                     <br/>
                     <br/>
-                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL} placeholder="Insert your URL here!"></input>
-                    <button className="btn btn-primary"  onClick={this.URLnappi}>Add to list</button>
+                    <b>URL</b>: <input ref="URL" type="text" onChange={this.props.URL}
+                                       placeholder="Insert your URL here!"></input>
+                    <button className="btn btn-primary" onClick={this.URLnappi}>Add to list</button>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top"><i class="icon-chevron-up"/>
                     </button>
                     <br/>
@@ -415,7 +425,9 @@ export class Vaihtoehdot extends React.Component {
 
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
 
-                        <button className="btn btn-primary" type="submit" value="Confirm" onClick={this.vahvista}>Confirm</button>
+                        <button className="btn btn-primary" type="submit" value="Confirm"
+                                onClick={this.vahvista}>Confirm
+                        </button>
                     </form>
                     <br/>
                     <button className="myBtn" onClick={this.topFunction} title="Go to top">
@@ -431,7 +443,6 @@ export class Vaihtoehdot extends React.Component {
             );
         }
     }
-
 
 
 }
