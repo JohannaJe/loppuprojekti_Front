@@ -11,6 +11,7 @@ export class Kuvaus extends React.Component {
                     <p><b>Just sign up and build </b></p>
                     <p></p>
                     <br/>
+                    <br/>
                 <div className = "bubble">
                     <p><b>Your Personal Bubble</b></p>
 

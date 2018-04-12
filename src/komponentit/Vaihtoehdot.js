@@ -58,7 +58,7 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="CNN-sports">Sports</option>
                                     </select>
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -76,7 +76,7 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -96,7 +96,7 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -116,12 +116,13 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
                         </tr>
                     </table>
+                    <br/>
                     <br/>
                     <br/>
                     <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
@@ -181,7 +182,7 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="CNN-sports">Sports</option>
                                     </select>
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -199,7 +200,7 @@ export class Vaihtoehdot extends React.Component {
                                     </select>
 
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -218,7 +219,7 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
@@ -238,12 +239,13 @@ export class Vaihtoehdot extends React.Component {
 
                                     </select>
                                     <br/>
-                                    <button class="btn-save btn btn-primary btn-sm">Add to list</button>
+                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
                                 </div>
                             </td>
 
                         </tr>
                     </table>
+                    <br/>
                     <br/>
                     <br/>
                     <b>URL</b>: <input type="text" onChange={this.props.URL}></input>
@@ -252,12 +254,14 @@ export class Vaihtoehdot extends React.Component {
                     </button>
                     <br/>
                     <br/>
+                    <br/>
                     <form>
                         <textarea className="feediLista"></textarea>
                         <br/>
-                        <input type="submit" value="Cancel"/>
-                        <input type="submit" value="Clear"/>
-                        <input type="submit" value="Confirm"/>
+                        <br/>
+                        <button className="btn btn-danger" type="submit" value="Cancel">Cancel</button>
+                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+                        <button className="btn btn-primary" type="submit" value="Confirm">Confirm</button>
                     </form>
 
 
