@@ -19,14 +19,15 @@ export class NaviBar extends React.Component {
                             <div className="navbar-header">
 
 
-                                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                                <button type="button" className="navbar-toggle" data-toggle="collapse"
+                                        data-target="#mainNavBar">
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
 
                                 </button>
                                 <a className="navbar-brand">
-                                    <img src={Feed100} alt="" width="120" heigth="70" />
+                                    <img src={Feed100} alt="" width="120" heigth="70"/>
                                 </a>
                             </div>
 
@@ -49,40 +50,41 @@ export class NaviBar extends React.Component {
         } else {
 
 
-        return (
-            <div className="App">
+            return (
+                <div className="App">
 
 
-                <nav className="navbar navbar-inverse">
-                    <div className="container-fluid">
+                    <nav className="navbar navbar-inverse">
+                        <div className="container-fluid">
 
-                        <div className="navbar-header">
+                            <div className="navbar-header">
 
 
-                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
+                                <button type="button" className="navbar-toggle" data-toggle="collapse"
+                                        data-target="#mainNavBar">
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
 
-                            </button>
-                            <a className="navbar-brand">
-                                <img src={Feed100} alt="" width="120" heigth="70" />
-                            </a>
-                        </div>
+                                </button>
+                                <a className="navbar-brand">
+                                    <img src={Feed100} alt="" width="120" heigth="70"/>
+                                </a>
+                            </div>
 
-                        <div className="collapse navbar-collapse" id="mainNavBar">
-                            <ul className="nav navbar-nav navbar-right">
-                                <li><Link to={"/"}>Home</Link></li>
-                                <li><Link to={"/register"}>Sign Up</Link></li>
-                                <li><Link to={"/login"}>Login</Link></li>
+                            <div className="collapse navbar-collapse" id="mainNavBar">
+                                <ul className="nav navbar-nav navbar-right">
+                                    <li><Link to={"/"}>Home</Link></li>
+                                    <li><Link to={"/register"}>Sign Up</Link></li>
+                                    <li><Link to={"/login"}>Login</Link></li>
                                 </ul>
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
 
 
-            </div>
-        );
+                </div>
+            );
 
         }
     }

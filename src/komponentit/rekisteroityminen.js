@@ -1,6 +1,7 @@
-// import {notification} from "antd/lib/index";
 import {notification} from 'antd';
+
 const palveluurl = '/api/auth/signup';
+
 notification.config({
     placement: 'topLeft',
     top: 70,
@@ -11,14 +12,14 @@ export function rekisteroityminen(User, callback) {
     console.log(JSON.stringify(User));
     return fetch(palveluurl, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(User)
     })
-        .then((function(response) {
+        .then((function (response) {
             console.log('MIKä', response.status)
             if (response.status === 200 || response.status === 201)
                 callback();
-            else if (response.status===400) {
+            else if (response.status === 400) {
                 console.log('uuuuu', response.error)
                 response.json().then((data) => {
                     console.log(data.message);
@@ -32,7 +33,6 @@ export function rekisteroityminen(User, callback) {
                 });
 
 
-
             }
 
 
@@ -42,23 +42,8 @@ export function rekisteroityminen(User, callback) {
             }
 
 
-
         }));
 }
-
-
-// export function muokkaus(User, callback) {
-//     console.log(JSON.stringify(User), 'TÄÄ LÄHTEE BÄKKII');
-//     return fetch(palveluurl, {
-//         method: 'UPDATE',
-//         headers: {'Content-Type': 'application/json' },
-//         body: JSON.stringify(User)
-//     })
-//         .then((function(response) {
-//             callback();
-//         }));
-// }
-
 
 
 const loginurl = '/api/auth/signin';
@@ -67,69 +52,59 @@ export function kirjauduSisaan(User, callback) {
     console.log(JSON.stringify(User));
     return fetch(loginurl, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(User)
     })
         .then(response =>
             response.json()
                 .then(json => {
-                if(!response.ok) {
-                    console.log('VÄÄRÄ TUNNUS TAI SALIS')
+                    if (!response.ok) {
+                        console.log('VÄÄRÄ TUNNUS TAI SALIS')
 
-                    notification.success({
-                        message: 'Wrong username or password.',
-                        description: "Please try again.",
-                    });
-
-
-                } else {
-                    console.log(json)
-                    console.log(json.accessToken)
-                    localStorage.setItem('accessToken', json.accessToken);
-                    callback(json);
-                }
+                        notification.success({
+                            message: 'Wrong username or password.',
+                            description: "Please try again.",
+                        });
 
 
-            }));
+                    } else {
+                        console.log(json)
+                        console.log(json.accessToken)
+                        localStorage.setItem('accessToken', json.accessToken);
+                        callback(json);
+                    }
 
 
-        // .then((function(response) {
-        //     if (response.status === 200) {
-        //         console.log(User.usernameOrEmail, "kirjautuneena");
-        //     }
-        //     callback();
-        // }));
+                }));
+
 }
+
 const updateurl = '/api/auth/updateData';
+
 export function lahetaPaivitettavaData(User, callback) {
     console.log(JSON.stringify(User), 'LÄHTEE BÄKKII');
     return fetch(updateurl, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(User)
     })
         .then(response => {
-                    if (response.ok) {
-                            console.log('JESSS')
-                            callback();
+            if (response.ok) {
+                callback();
 
 
-                    } else {
-                        console.log('BUUUUU')
-                        // console.log(json)
-                        // console.log(json.accessToken)
-                        // localStorage.setItem('accessToken', json.accessToken);
-                        // callback(json);
-                    }
+            } else {
+                console.log('Tätä erroria ei pitäisi tulla ikinä ;)')
+            }
 
 
-                });
+        });
 
 }
 
 
 export function getCurrentUser() {
-    if(!localStorage.getItem('accessToken')) {
+    if (!localStorage.getItem('accessToken')) {
         return Promise.reject("No access token set.");
     }
 
@@ -144,7 +119,7 @@ const request = (options) => {
         'Content-Type': 'application/json',
     })
 
-    if(localStorage.getItem('accessToken')) {
+    if (localStorage.getItem('accessToken')) {
         headers.append('Authorization', 'Bearer ' + localStorage.getItem('accessToken'))
     }
 
@@ -154,7 +129,7 @@ const request = (options) => {
     return fetch(options.url, options)
         .then(response =>
             response.json().then(json => {
-                if(!response.ok) {
+                if (!response.ok) {
                     return Promise.reject(json);
                 }
                 return json;

@@ -1,9 +1,8 @@
 import React from 'react';
 import './Register.css';
 import {rekisteroityminen} from "./rekisteroityminen";
-import {haeLista, lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
+import {lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
 import {Vaihtoehdot} from "./Vaihtoehdot";
-
 
 
 export class Register extends React.Component {
@@ -17,77 +16,59 @@ export class Register extends React.Component {
             data: ""
         }
 
-        // const {name} = this.state;
-        // const kaa = this.state.name
-        // const isEnabled =
-        //     kaa.length = 0 //&&
-        //     // password.length > 0;
     }
 
     uusiHenkilo = () => {
-
-        // if (true) {
-        //     var data = "";
-        //     taulukkoon(data)
-        // }
-        // console.log('jes', data, lahdetaulukko);
-        // haeLista(function (lista) {
-        // }.bind(this), lahdetaulukko);
-
 
         taulukkoon(this.state.urltxt);
         let tmpdata = this.state;
         tmpdata.data = JSON.stringify(lahdetaulukko);
 
 
-        rekisteroityminen(tmpdata, function(lista, virhe) {
-            this.setState({name: "", username: "", email: "", password: "",  data: []});
-            lahdetaulukko.splice(0,lahdetaulukko.length)
+        rekisteroityminen(tmpdata, function (lista, virhe) {
+            this.setState({name: "", username: "", email: "", password: "", data: []});
+            lahdetaulukko.splice(0, lahdetaulukko.length)
             if (!virhe)
-            this.props.history.push("/login");
+                this.props.history.push("/login");
         }.bind(this));
-
 
 
     }
 
-    givePassword(event){
+    givePassword(event) {
         this.setState({
             password: event.target.value
         });
     }
 
-    giveUsername(event){
+    giveUsername(event) {
         this.setState({
             username: event.target.value
         });
     }
 
-    giveEmail(event){
+    giveEmail(event) {
         this.setState({
             email: event.target.value
         });
     }
 
-    giveName(event){
+    giveName(event) {
         this.setState({
             name: event.target.value
         });
     }
 
-    giveData(){
-//        taulukkoon(this.state.urltxt);
+    giveData() {
         this.setState({
 
             data: JSON.stringify(lahdetaulukko
-
             )
         });
     }
 
     toggleURL = (event) => {
 
-        //taulukkoon(event.target.value);
         this.setState({urltxt: event.target.value});
     }
 
@@ -124,25 +105,30 @@ export class Register extends React.Component {
     }
 
 
-
-    render(){
-        return(
-            <div className = "registerreuna">
+    render() {
+        return (
+            <div className="registerreuna">
                 <div className="teksti">
-                <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
+                    <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
                     <p><b>1. Add your preferences by clicking the choices.</b></p>
                     <p><b>2. Write a feed source url in the URL box. </b></p>
-                        <p><b> 3. Pick a username and a password. </b></p>
-                <p><b>4. Press "Sign up".</b></p>
+                    <p><b> 3. Pick a username and a password. </b></p>
+                    <p><b>4. Press "Sign up".</b></p>
                 </div>
-                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC} CNN={this.toggleCNN}/>
-                <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)} placeholder="Name (3-40 characters)"/>
-                <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)} placeholder="Username (3-15 characters)"/>
-                <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)} placeholder="Email (max 40 characters)" required/>
-                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)} placeholder="Password (6-20 characters) "/>
-                <button disabled={((this.state.name.length < 3 || this.state.name.length > 40) || (this.state.username.length < 3 || this.state.username.length > 15) ||
-                    (this.state.email.length > 40) || (this.state.password.length < 6 || this.state.password.length > 20))
-                } onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
+                <Vaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}
+                             CNN={this.toggleCNN}/>
+                <input type="text" value={this.state.name} onChange={(event) => this.giveName(event)}
+                       placeholder="Name (3-40 characters)"/>
+                <input type="text" value={this.state.username} onChange={(event) => this.giveUsername(event)}
+                       placeholder="Username (3-15 characters)"/>
+                <input type="email" value={this.state.email} onChange={(event) => this.giveEmail(event)}
+                       placeholder="Email (max 40 characters)" required/>
+                <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)}
+                       placeholder="Password (6-20 characters) "/>
+                <button
+                    disabled={((this.state.name.length < 3 || this.state.name.length > 40) || (this.state.username.length < 3 || this.state.username.length > 15) ||
+                        (this.state.email.length > 40) || (this.state.password.length < 6 || this.state.password.length > 20))
+                    } onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
             </div>
