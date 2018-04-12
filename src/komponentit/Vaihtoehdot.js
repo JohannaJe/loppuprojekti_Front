@@ -22,6 +22,8 @@ export class Vaihtoehdot extends React.Component {
         document.documentElement.scrollTop = 0;
     };
 
+
+
     render() {
         var kirjautunut = this.props.isAuthenticated
         console.log(kirjautunut, 'SAAATANA')
@@ -182,7 +184,11 @@ export class Vaihtoehdot extends React.Component {
                                         <option value="CNN-sports">Sports</option>
                                     </select>
                                     <br/>
-                                    <button className="btn-save btn btn-primary btn-sm">Add to list</button>
+
+
+                                    <button class="btn-save btn btn-primary btn-sm" onClick={this.props.CNN}>CNN-nappi</button>
+
+
                                 </div>
                             </td>
 
@@ -281,5 +287,7 @@ export class Vaihtoehdot extends React.Component {
             );
         }
     }
+
+
 }
 
