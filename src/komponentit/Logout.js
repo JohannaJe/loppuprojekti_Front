@@ -11,17 +11,13 @@ export class Logout extends React.Component {
 
     }
 
-    // kirjauduUlos() {
-    //     console.log('KLIKKK')
-    //     localStorage.removeItem('accessToken');
-
-    // }
-    render(){
-            return(
-                <div>
-                    <Etusivu/>
-                </div>
-            );
+    
+    render() {
+        return (
+            <div>
+                <Etusivu/>
+            </div>
+        );
 
 
     }

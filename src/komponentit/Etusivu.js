@@ -13,7 +13,6 @@ export class Etusivu extends Component {
         var kirjautunut = this.props.isAuthenticated
         if (kirjautunut) {
 
-            // var data = this.props.data;
             var data = this.props.kayttaja.data;
             taulukkoon(data)
         }
@@ -23,7 +22,7 @@ export class Etusivu extends Component {
 
         }.bind(this), lahdetaulukko);
 
-        lahdetaulukko.splice(0,lahdetaulukko.length)
+        lahdetaulukko.splice(0, lahdetaulukko.length)
 
 
     }
@@ -38,7 +37,7 @@ export class Etusivu extends Component {
     }
 
     toggleCNN = () => {
-            taulukkoon("CNN-latest");
+        taulukkoon("CNN-latest");
 
 
     }
@@ -66,7 +65,8 @@ export class Etusivu extends Component {
         if (kirjautunut) {
             return (
                 <div className="kayttajatili">
-                    <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut} haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
+                    <Listaus lista={this.state.testiLista} isAuthenticated={kirjautunut}
+                             haefunktio={this.haeListaJaPaivita} kayttaja={this.props.kayttaja}/>
 
                 </div>
             );
@@ -75,8 +75,9 @@ export class Etusivu extends Component {
             return (
                 <div className="tausta">
                     <div className="intro">
-                    <p><b>Welcome to be feeded with the kind of news that YOU want!</b></p>
-                    <p><b> Just pick your favourites by clicking the choices or write a feed source url in the URL box. </b></p>
+                        <p><b>Welcome to be feeded with the kind of news that YOU want!</b></p>
+                        <p><b> Just pick your favourites by clicking the choices or write a feed source url in the URL
+                            box. </b></p>
                         <p><b><font color="#0099ff">Need4Feed</font> gets your news. </b></p>
                     </div>
                     <br/>

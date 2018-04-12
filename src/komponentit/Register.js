@@ -3,8 +3,6 @@ import './Register.css';
 import {rekisteroityminen} from "./rekisteroityminen";
 import {haeLista, lahdetaulukko, poistaTaulukosta, taulukkoon} from "./funktiot";
 import {Vaihtoehdot} from "./Vaihtoehdot";
-import {notification} from "antd/lib/index";
-import Login from './Login'
 
 
 

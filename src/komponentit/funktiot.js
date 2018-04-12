@@ -6,7 +6,7 @@ let kirjautuneentaulukko = [];
 function haeLista(callback, feed) {
     let url = baseurl;
     if (feed) {
-        url += "?name="+feed;
+        url += "?name=" + feed;
     }
     fetch(url)
         .then(function (response) {
@@ -18,7 +18,6 @@ function haeLista(callback, feed) {
                 };
                 throw errviesti;
             }
-            // console.log(response.json())
             return response.json();
 
         })
@@ -32,7 +31,7 @@ function taulukkoon(lahde) {
     lahdetaulukko.push(lahde);
 }
 
-function poistaTaulukosta (lahde) {
+function poistaTaulukosta(lahde) {
     const poistettava = lahdetaulukko.indexOf(lahde);
     lahdetaulukko.splice(poistettava, 1);
 
@@ -42,12 +41,11 @@ function kirjautuneenTaulukkoon(lahde) {
     kirjautuneentaulukko.push(lahde);
 }
 
-function poistaKirjautuneenTaulukosta (lahde) {
+function poistaKirjautuneenTaulukosta(lahde) {
     const poistettava = kirjautuneentaulukko.indexOf(lahde);
     kirjautuneentaulukko.splice(poistettava, 1);
 
 }
-
 
 
 export {haeLista};
