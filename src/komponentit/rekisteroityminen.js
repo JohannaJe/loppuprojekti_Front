@@ -15,7 +15,8 @@ export function rekisteroityminen(User, callback) {
         body: JSON.stringify(User)
     })
         .then((function(response) {
-            if (response.status === 200)
+            console.log('MIKä', response.status)
+            if (response.status === 200 || response.status === 201)
                 callback();
             else if (response.status===400) {
                 console.log('uuuuu', response.error)
