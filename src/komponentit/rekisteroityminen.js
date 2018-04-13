@@ -44,7 +44,6 @@ export function rekisteroityminen(User, callback) {
 const loginurl = '/api/auth/signin';
 
 export function kirjauduSisaan(User, callback) {
-    console.log(JSON.stringify(User));
     return fetch(loginurl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -54,7 +53,6 @@ export function kirjauduSisaan(User, callback) {
             response.json()
                 .then(json => {
                     if (!response.ok) {
-                        console.log('VÄÄRÄ TUNNUS TAI SALIS')
 
                         notification.success({
                             message: 'Wrong username or password.',
@@ -63,8 +61,6 @@ export function kirjauduSisaan(User, callback) {
 
 
                     } else {
-                        console.log(json)
-                        console.log(json.accessToken)
                         localStorage.setItem('accessToken', json.accessToken);
                         callback(json);
                     }
@@ -77,7 +73,6 @@ export function kirjauduSisaan(User, callback) {
 const updateurl = '/api/auth/updateData';
 
 export function lahetaPaivitettavaData(User, callback) {
-    console.log(JSON.stringify(User), 'LÄHTEE BÄKKII');
     return fetch(updateurl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

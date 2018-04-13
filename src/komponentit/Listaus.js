@@ -47,8 +47,8 @@ export class Listaus extends React.Component {
                                                    width="30%" height="20%"/></a></p>
                         <p id="otsikkolinkki"><a class="linkki" target="_blank" href={x.linkki}>{x.otsikko}</a></p>
 
-                        <br/>
-                        <br/>
+
+
 
                     </div>
                 </div>)

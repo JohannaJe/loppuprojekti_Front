@@ -6,7 +6,7 @@ import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
 import {lahetaPaivitettavaData} from "./rekisteroityminen";
 import {Feedilista} from "./Feedilista";
-import {kirjautuneentaulukko, taulukkoon} from "./funktiot";
+import {kirjautuneentaulukko, lahdetaulukko, taulukkoon} from "./funktiot";
 
 
 export class RekisteroityvanVaihtoehdot extends React.Component {
@@ -99,7 +99,8 @@ export class RekisteroityvanVaihtoehdot extends React.Component {
 
     clearLista = (e) => {
         e.preventDefault();
-
+        lahdetaulukko.splice(0, lahdetaulukko.length);
+        this.setState(this.state);
 
     }
 
@@ -224,7 +225,7 @@ export class RekisteroityvanVaihtoehdot extends React.Component {
                     <Feedilista isAuthenticated={this.props.isAuthenticated}/>
                     <br/>
 
-                    <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+                    <button className="btn btn-info" type="reset" value="reset" onClick={this.clearLista}>Clear</button>
 
 
                 </form>

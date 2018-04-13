@@ -6,7 +6,7 @@ import HSlogo from '../HSlogo.png'
 import ISlogo from '../ISlogo.png'
 import {lahetaPaivitettavaData} from "./rekisteroityminen";
 import {Feedilista} from "./Feedilista";
-import {kirjautuneentaulukko, kirjautuneenTaulukkoon, taulukkoon} from "./funktiot";
+import {kirjautuneentaulukko, lahdetaulukko, kirjautuneenTaulukkoon, taulukkoon} from "./funktiot";
 
 
 export class Vaihtoehdot extends React.Component {
@@ -147,7 +147,15 @@ export class Vaihtoehdot extends React.Component {
 
     clearLista = (e) => {
         e.preventDefault();
+        lahdetaulukko.splice(0, lahdetaulukko.length);
+        this.setState(this.state);
 
+    }
+
+    clearKirjLista = (e) => {
+        e.preventDefault();
+        kirjautuneentaulukko.splice(0, kirjautuneentaulukko.length);
+        this.setState(this.state);
 
     }
 
@@ -278,7 +286,7 @@ export class Vaihtoehdot extends React.Component {
                         <Feedilista isAuthenticated={this.props.isAuthenticated}/>
                         <br/>
 
-                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+                        <button className="btn btn-info" type="reset" value="reset" onClick={this.clearKirjLista}>Clear</button>
 
                         <button className="btn btn-primary" type="submit" onClick={this.paivitaData}>UPDATE</button>
 
@@ -423,7 +431,7 @@ export class Vaihtoehdot extends React.Component {
                         <Feedilista isAuthenticated={this.props.isAuthenticated}/>
                         <br/>
 
-                        <button className="btn btn-info" type="submit" value="Clear">Clear</button>
+                        <button className="btn btn-info" type="reset" value="reset" onClick={this.clearLista}>Clear</button>
 
                         <button className="btn btn-primary" type="submit" value="Confirm"
                                 onClick={this.vahvista}>Confirm
