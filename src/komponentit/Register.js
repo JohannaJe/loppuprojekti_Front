@@ -130,11 +130,19 @@ export class Register extends React.Component {
                 <button
                     disabled={((this.state.name.length < 3 || this.state.name.length > 40) || (this.state.username.length < 3 || this.state.username.length > 15) ||
                         (this.state.email.length > 40) || (this.state.password.length < 6 || this.state.password.length > 20))
-                    // || (this.state.data.length < 1) ??
 
                     } onClick={this.uusiHenkilo} className="btn btn-info" type="submit">
                     Sign Up
                 </button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
         );
     }
