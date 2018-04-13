@@ -37,7 +37,9 @@ export class Login extends React.Component {
 
     render() {
         return (
-            <div className="registerreuna">
+            <div className="intro">
+                <p><b>Login to your personal bubble!</b></p>
+
                 <input type="text" value={this.state.usernameOrEmail}
                        onChange={(event) => this.giveUsernameOrEmail(event)} placeholder="username or email"/>
                 <input type="password" value={this.state.password} onChange={(event) => this.givePassword(event)}

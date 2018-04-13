@@ -278,6 +278,7 @@ export class Vaihtoehdot extends React.Component {
                         <Feedilista isAuthenticated={this.props.isAuthenticated}/>
                         <br/>
 
+
                         <button className="btn btn-info" type="submit" value="Clear">Clear</button>
 
                         <button className="btn btn-primary" type="submit" onClick={this.paivitaData}>UPDATE</button>

@@ -76,10 +76,11 @@ export class Etusivu extends Component {
             return (
                 <div className="tausta">
                     <div className="intro">
-                        <p><b>Welcome to be feeded with the kind of news that YOU want!</b></p>
-                        <p><b> Just pick your favourites by clicking the choices or write a feed source url in the URL
-                            box. </b></p>
-                        <p><b><font color="#0099ff">Need4Feed</font> gets your news. </b></p>
+                        <p><b>WELCOME TO BE FED WITH YOUR ABSOLUTE FAVOURITE NEWS</b></p>
+                        <p><b>1. Add your preferences by clicking the choices.</b></p>
+                        <p><b>2. Click "Add to list" to create your personal news feed.</b></p>
+                        <p><b>3. Insert a feed source url in the URL box and add it to your feed. </b></p>
+                        <p><b>4. Click "confirm" and <font color="#0099ff">Need4Feed</font> gets your news. </b></p>
                     </div>
                     <br/>
                     <Vaihtoehdot haefunktio={this.haeListaJaPaivita} HS={this.toggleHS} IS={this.toggleIS}

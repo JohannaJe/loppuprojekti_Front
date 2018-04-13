@@ -112,9 +112,10 @@ export class Register extends React.Component {
                 <div className="teksti">
                     <p><b>BRAVO! LET'S BUILD YOUR BUBBLE:</b></p>
                     <p><b>1. Add your preferences by clicking the choices.</b></p>
-                    <p><b>2. Write a feed source url in the URL box. </b></p>
-                    <p><b> 3. Pick a username and a password. </b></p>
-                    <p><b>4. Press "Sign up".</b></p>
+                    <p><b>2. Click "Add to list" to create your personal news feed.</b></p>
+                    <p><b>3. Insert a feed source url in the URL box and add it to your feed. </b></p>
+                    <p><b>4. Pick a username and a password. </b></p>
+                    <p><b>5. Press "Sign up".</b></p>
                 </div>
                 <RekisteroityvanVaihtoehdot URL={this.toggleURL} HS={this.toggleHS} IS={this.toggleIS} BBC={this.toggleBBC}
                              CNN={this.toggleCNN}/>
